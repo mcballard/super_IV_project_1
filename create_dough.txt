@@ -9,8 +9,12 @@ Step 2: Knead the dough until it becomes smooth rather than sticky. Extra flour 
 Step 3: Let the dough sit for 30 minutes, so that it may rise.
 
 Step 4: Once dough is smooth and elastic, it is in the perfect form to roll into the desired shape.
+"""
+
+these steps have been integerated into the prepare_pan module
 
 Step 5: Pre-bake in oven for no more than 5 minutes, until it looks set and a little bubbly. If it is brown at this
         point it has been pre-baked for too long.
 
 (Optional) Step 6: If pockets of air formed while pre-baking, prick the pockets with a fork to allow the gas to escape.
+"""

@@ -11,13 +11,10 @@ Testing Strategy:
 			/employees/<employee_id> (used for miscellaneous actions not yet considered)
 			/employees/<employee_id>/reimbursement_requests
 					(POST will send user input from web interface to create requests)
-					(GET will be used to select all emp_id related requests and present them in a viewable and
+					(GET will be used to select all employee_id related requests and present them in a viewable and
 					        selectable format)
 					(PATCH will allow the user interface to send any changes from a presented list of requests)
 					(DELETE will be used to delete the selected request from the database)
-
-	User interface guidelines and technologies:
-		(fill this out when we get there)
 
 	Workflow guidelines:
 

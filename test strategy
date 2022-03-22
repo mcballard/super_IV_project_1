@@ -1,0 +1,70 @@
+Testing Strategy:
+
+	API guidelines:
+
+		API should be RESTful
+
+		The API shall be written in python using Flask
+
+		The route to be used shall be as follows:
+			/employees (POST verb will be used at this endpoint to login)
+			/employess/<employee_id> (used for miscellaneous actions not yet considered)
+			/employess/<employee_id>/reimbursement_requests
+					(POST will send user input from web interface to create requests)
+					(GET will be used to select all emp_id related requests and present them in a viewable and selectable format)
+					(PATCH will allow the user interface to send any changes from a presented list of requests)
+					(DELETE will be used to delete the selected request from the database)
+
+	User interface guidelines and technologies:
+		(fill this out when we get there)
+
+	Workflow guidelines:
+
+		Version control will be handled via the use of a github repository and the use of branching
+			https://github.com/mcballard/super_IV_project_1
+			This repository will be used for this project specifically, for assitance on being added as collaborator
+				please contact the repo owner for invitation.
+
+		Each contributor will be assigned specific modules to work on and create their own branches to reduce the risk
+			of creating excessive merge errors and protecting the main branch from corruption.
+
+		Any work should be commited and push to the specific branches as appropriate (daily at least) to ensure
+			branches can be integrated successfully between sprints.
+
+		Any concerns should be brought to the team lead to be addressed directly or passed along to the project owner.
+
+
+	Best practices to be followed:
+
+		All variable names should be spelled out completely (i.e. employee_id).
+
+		All case conventions should be followed per the language being used:
+			python - snake_case
+			JSON response - camelCase
+
+		Development should be behaviour driven and test driven:
+			each module in each tier should have a seperate suite of unit tests consisting of at least:
+				Data layer methods:
+					one positive test
+				Service layer methods:
+					one positive test
+					all business logic must have negative tests (error catching)
+					mocking and stubbing should be used where appropriate
+				API methods:
+					must all have a positive test using Postman
+					must have negative tests for all possible errors for each type of request
+
+		Integration testing:
+			(fill in when we get there)
+
+	Defect and bug reporting:
+
+		Defect reports:
+			These should be updated and reported weekly to include:
+				What bugs are present?
+				What is their priority?
+				What is their severity?
+				Who is assigned to the effected modules?
+
+		Test results:
+			(fill this in when we get there)

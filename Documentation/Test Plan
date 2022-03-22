@@ -1,0 +1,60 @@
+Test Plan
+
+    Technologies being used:
+        AWS, postgres DB, EC2 Security groups
+        github for version control and collaboration
+        pycharm for python development and testing with pytest
+        pyscopg[binary] package for python postges db integration
+        Flask package for python API integration
+        Postman for RESTful testing
+        Excalidraw for wireframe design https://excalidraw.com
+
+    Deadlines:
+        Overall project completion deadline is 4/8/2022
+        Documentation completed by 3/25/2022
+            Test Strategy
+            Test Plan
+            User Stories
+            Acceptance Criteria
+            Wireframe
+            Create module tracking spreadsheet
+        Design test suite for data layer should be completed by 3/29/2022
+            unit testing for at least CRUD actions required
+        Implement data layer and develop any edge case tests, should be completed by 3/31/2022
+            unit testing for edge cases and database errors
+        Design test suites for service layer and API should be completed by 4/4/2022
+            unit tests for business logic required
+        Implement service layer and API and design tests for any edge cases should be completed by 4/6/2022
+            unit tests for edge cases and input errors
+        Final two days allow for bug resolution and test result organization for presentation leading up to 4/8/2022
+            (fill in when we come to test results presentation)
+
+    Testing Requirements:
+        All Data Access Layer methods must meet the following testing requirements:
+            they must have one positive test
+                test for insert
+                test for select
+                test for delete
+            tests must be unit tests if possible
+        All Service Layer methods must meet the following testing requirements:
+            applicable methods must have one positive test
+            all business logic must have negative tests
+                Comments cannot exceed 100 characters
+                Amount must fall between 1 and 1000 dollars PER request
+                Confirm username and password during log in
+            tests must be unit tests if possible
+            Mocking and stubbing should be included in your testing
+        All API methods must meet the following testing requirements:
+            they must all have a positive test on postman
+            they must all have a negative test for each way the request can fail on postman
+        Your application should meet the following integration test requirements:
+            every user story should have an End to End test
+            every feature should have its own feature file
+                these feature files should contain both the happy path and alternative path acceptance criteria
+
+    Not testing and why:
+        We do not have a need to test an update interaction in the database as nothing in the project explicitly
+            requires this action.
+        We will not be testing if the requests get approved or not because it is not our job.
+
+

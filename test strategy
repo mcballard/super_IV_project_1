@@ -8,10 +8,11 @@ Testing Strategy:
 
 		The route to be used shall be as follows:
 			/employees (POST verb will be used at this endpoint to login)
-			/employess/<employee_id> (used for miscellaneous actions not yet considered)
-			/employess/<employee_id>/reimbursement_requests
+			/employees/<employee_id> (used for miscellaneous actions not yet considered)
+			/employees/<employee_id>/reimbursement_requests
 					(POST will send user input from web interface to create requests)
-					(GET will be used to select all emp_id related requests and present them in a viewable and selectable format)
+					(GET will be used to select all emp_id related requests and present them in a viewable and
+					        selectable format)
 					(PATCH will allow the user interface to send any changes from a presented list of requests)
 					(DELETE will be used to delete the selected request from the database)
 
@@ -22,19 +23,22 @@ Testing Strategy:
 
 		Version control will be handled via the use of a github repository and the use of branching
 			https://github.com/mcballard/super_IV_project_1
-			This repository will be used for this project specifically, for assitance on being added as collaborator
+			This repository will be used for this project specifically, for assistance on being added as collaborator
 				please contact the repo owner for invitation.
 
 		Each contributor will be assigned specific modules to work on and create their own branches to reduce the risk
 			of creating excessive merge errors and protecting the main branch from corruption.
 
-		Any work should be commited and push to the specific branches as appropriate (daily at least) to ensure
+		A spreadsheet tracking module progress and branch owners for said module will be maintained in the repo
+		    main branch in a documentation folder.
+
+		Any work should be committed and push to the specific branches as appropriate (daily at least) to ensure
 			branches can be integrated successfully between sprints.
 
 		Any concerns should be brought to the team lead to be addressed directly or passed along to the project owner.
 
 
-	Best practices to be followed:
+	Best coding practices to be followed:
 
 		All variable names should be spelled out completely (i.e. employee_id).
 
@@ -43,7 +47,7 @@ Testing Strategy:
 			JSON response - camelCase
 
 		Development should be behaviour driven and test driven:
-			each module in each tier should have a seperate suite of unit tests consisting of at least:
+			each module in each tier should have a separate suite of unit tests consisting of at least:
 				Data layer methods:
 					one positive test
 				Service layer methods:

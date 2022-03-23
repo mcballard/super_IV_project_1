@@ -69,14 +69,15 @@ P1 Acceptance Criteria
     When: I select Delete Request.
     When: I enter incorrect request id to be canceled.
     When: I click the cancel button.
-    Then: I receive notification that the request is not canceled. Request does not exist, or you do not access to request. Redirected back to home page.
+    Then: I receive notification that the request is not canceled. Request does not exist, or you do not have access to request. Redirected back to home page.
 
 4. Feature: Secret agent should be able to see the total amount of money requested.
     Scenario: As a secret agent, I want to be able to see the total amount of money requested.
     Given: I am on the home page.
     When: I select the dropdown menu.
     When: I select View Total Amount Requested.
-    Then: I receive a total amount requested in dollars. Redirected to home page.
+    When: I have viewed the total amount and click the done button.
+    Then: I am redirected to home page.
 
 5. Feature: Secret agent should be able to log out of account.
     Scenario: As a secret agent, I want to be able to log out of my account safely.

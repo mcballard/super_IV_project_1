@@ -1,0 +1,12 @@
+Description: expense  reimbursement system for a small assassin  company
+/group.
+
+As a Secret Agent I should be allowed to log into a secret page for a reimbursement request
+As a Secret Agent I want to be able to create a request for traveling expense
+As a Secret Agent I would like to be able to request reimbursement for ammo
+As a Secret Agent I would like to be able to request reimbursement for lodging
+As a Secret Agent I would like to be able to request for extra essential equipment
+As a Secret Agent I would like to be able to request for veterinarian expenses
+As a Secret Agent I would like to be able to cancel a reimbursement request
+As a Secret Agent I would like to be able to see the total amount of money that they have requested
+As a Secret Agent I would like to be able to log out of the secret page

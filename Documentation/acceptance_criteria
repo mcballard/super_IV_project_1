@@ -9,6 +9,20 @@ P1 Acceptance Criteria
     When: I press the log in button.
     Then: I receive confirmation of successful log in to page. Redirected to home page.
 
+   Scenario #2: As a secret agent, I should be denied access for incorrect log in.
+    Given: I am on the log in page.
+    When: I enter my user name incorrectly.
+    When: I enter my password.
+    When: I press the log in button.
+    Then: I receive notification of incorrect username. Redirected to log in page.
+
+    Scenario #3: As a secret agent, I should be denied access for incorrect log in.
+    Given: I am on the log in page.
+    When: I enter my user name.
+    When: I enter my password incorrectly.
+    When: I press the log in button.
+    Then: I receive notification of incorrect password. Redirected to log in page.
+
 2. Feature: Secret agent should be able to create reimbursement request with a reason.
     Scenario: As a secret agent, I want to make a reimbursement request.
     Given: I am on the home page.
@@ -20,6 +34,26 @@ P1 Acceptance Criteria
     When: I click the submit button.
     Then: I receive confirmation of successful request made and request id. Redirected to home page.
 
+    Scenario #2: As a secret agent, I should not be able to create a request comment with more than 100 characters.
+    Given: I am on the home page.
+    When: I click on the dropdown menu.
+    When: I select the Create Reimbursement Request.
+    When: I input the amount.
+    When: I select the reason option from dropdown menu.
+    When: I create a comment with more than 100 characters.
+    When: I click the submit button.
+    Then: I receive notification that request was not created due to the comment being greater than 100 characters. Redirected to home page.
+
+    Scenario #3: As a secret agent, I should not be able to create a request for less than $1.00 or more than $1000.00.
+    Given: I am on the home page.
+    When: I click on the dropdown menu.
+    When: I select the Create Reimbursement Request.
+    When: I input an amount less than $1.00 or greater than $1000.00.
+    When: I select the reason option from dropdown menu.
+    When: I create a comment with less than 100 characters.
+    When: I click the submit button.
+    Then: I receive notification that request was not created due to the request amount being less than $1.00 or greater than $1000.00. Redirected to home page.
+
 3. Feature: Secret agent should be able to cancel a request.
     Scenario: As a secret agent, I want to cancel a request.
     Given: I am on the home page.
@@ -28,6 +62,14 @@ P1 Acceptance Criteria
     When: I enter request id to be canceled.
     When: I click the cancel button.
     Then: I receive the confirmation of the cancel request has been made. Redirected back to home page.
+
+    Scenario #2: As a secret agent, I should not be able to cancel a request with incorrect request id.
+    Given: I am on the home page.
+    When: I select the dropdown menu.
+    When: I select Delete Request.
+    When: I enter incorrect request id to be canceled.
+    When: I click the cancel button.
+    Then: I receive notification that the request is not canceled. Request does not exist, or you do not access to request. Redirected back to home page.
 
 4. Feature: Secret agent should be able to see the total amount of money requested.
     Scenario: As a secret agent, I want to be able to see the total amount of money requested.

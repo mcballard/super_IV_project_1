@@ -1,0 +1,88 @@
+P0 Acceptance Criteria:
+
+1. Feature: Customer should be able to create relationship with the bank.
+   Scenario: As a customer I want to create a membership with the bank.
+    Given: I am on the customer creation page.
+    When: I enter my first name.
+    When: I enter my last name.
+    When: I click the submit button.
+    Then: I receive confirmation of membership creation with customer id, and I am redirected to the home page
+
+2. Feature: Customer should be able to create an account with their customer id.
+    Scenario: As a customer I want to be able to create an account with the bank with a starting balance.
+    Given: I am on the home page.
+    When: I click drop down menu.
+    When: I click create account.
+    When: I enter my customer id.
+    When: I enter my starting balance.
+    When: I click the create account button.
+    Then: I receive confirmation of account creation with account id, and I am redirected back to the home page.
+
+3. Feature: Customer should be able to view one account with account id.
+    Scenario: As a customer I want to be able to view my current account balance.
+    Given: I am on the home page.
+    When: I click the dropdown menu.
+    When: I click view account.
+    When: I enter my account id.
+    When: I click view account button.
+    Then I should receive a summary of my account status including the balance, and I am redirected back to the home page.
+
+4. Feature: Customer should be able to view summary of all accounts with customer id.
+    Scenario: As a customer I want to be able to the summary of all of my accounts.
+    Given: I am on the home page.
+    When: I click the dropdown menu.
+    When: I click view summary.
+    When: I enter my customer id.
+    When: I click view summary button.
+    Then: I should receive a summary of the balance of all of my accounts, and I am redirected to the home page.
+
+
+5. Feature: Customer should be able to withdraw funds from their account with account id and withdraw amount.
+    Scenario: As a customer I want to withdraw funds from my account.
+    Given: I am on the home page.
+    When: I click the dropdown menu.
+    When: I click withdraw.
+    When: I enter my account id.
+    When: I enter my withdrawal amount.
+    When: I click the withdrawal button.
+    Then: I should receive confirmation of withdraw, and redirected back to the home page.
+
+6. Feature: Customer should be able to deposit funds into their account with account id and deposit amount.
+    Scenario: As a customer I want to deposit funds into my account.
+    Given: I am on the home page.
+    When: I click the dropdown menu.
+    When: I click deposit.
+    When: I enter my account id.
+    When: I enter my deposit amount.
+    When: I click the deposit button.
+    Then: I should receive confirmation of deposit, and redirected back to the home page.
+
+7. Feature: Customer should be able to transfer funds between two accounts with the account numbers and the transfer amount.
+    Scenario: As a customer I want to transfer funds from one account to another.
+    Given: I am on the home page.
+    When: I click the dropdown menu.
+    When: I click transfer funds.
+    When: I enter the transfer from account id.
+    When: I enter the transfer to account id.
+    When: I enter the transfer amount.
+    When: I click the transfer funds button.
+    Then: I should receive confirmation of the transfer, and be redirected back to the home page.
+
+8. Feature: Customer should be able to delete account with the account number.
+    Scenario: As a customer I want to delete my account.
+    Given: I am on the home page.
+    When: I click the dropdown menu.
+    When: I click delete account.
+    When: I enter my account number.
+    When: I click the delete account button.
+    Then: I should receive confirmation of the account being deleted, and be redirected back to the home page.
+
+9. Feature: Customer should be able to end membership with the bank.
+    Scenario: As a customer I want to end my membership with the bank.
+    Given: I am on the home page.
+    When: I click the dropdown menu.
+    When: I click end membership.
+    When: I enter my customer id.
+    When: I click the end membership button.
+    Then: I should receive confirmation of all accounts closed and membership ended, and redirected to customer creation page.
+

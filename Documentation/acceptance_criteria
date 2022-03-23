@@ -1,0 +1,45 @@
+P1 Acceptance Criteria
+
+
+1. Feature: Secret agent should be able to log in to my account.
+   Scenario: As a secret agent, I want to be able to log in to my account.
+    Given: I am on the log in page.
+    When: I enter my user name.
+    When: I enter my password.
+    When: I press the log in button.
+    Then: I receive confirmation of successful log in to page. Redirected to home page.
+
+2. Feature: Secret agent should be able to create reimbursement request with a reason.
+    Scenario: As a secret agent, I want to make a reimbursement request.
+    Given: I am on the home page.
+    When: I click on the dropdown menu.
+    When: I select the Create Reimbursement Request.
+    When: I input the amount.
+    When: I select the reason option from dropdown menu.
+    When: I create a comment with less than 100 characters.
+    When: I click the submit button.
+    Then: I receive confirmation of successful request made and request id. Redirected to home page.
+
+3. Feature: Secret agent should be able to cancel a request.
+    Scenario: As a secret agent, I want to cancel a request.
+    Given: I am on the home page.
+    When: I select the dropdown menu.
+    When: I select Delete Request.
+    When: I enter request id to be canceled.
+    When: I click the cancel button.
+    Then: I receive the confirmation of the cancel request has been made. Redirected back to home page.
+
+4. Feature: Secret agent should be able to see the total amount of money requested.
+    Scenario: As a secret agent, I want to be able to see the total amount of money requested.
+    Given: I am on the home page.
+    When: I select the dropdown menu.
+    When: I select View Total Amount Requested.
+    Then: I receive a total amount requested in dollars. Redirected to home page.
+
+5. Feature: Secret agent should be able to log out of account.
+    Scenario: As a secret agent, I want to be able to log out of my account safely.
+    Given: I am on the home page.
+    When: I select the dropdown menu.
+    When: I select the Logout of Account.
+    When: I click the submit button.
+    Then: I receive the confirmation of logging out of my account. Redirected back to the log in page.

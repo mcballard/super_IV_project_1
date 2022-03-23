@@ -1,5 +1,4 @@
-Description: expense  reimbursement system for a small assassin  company
-/group.
+Description: expense reimbursement system for a small secret agent company/group.
 
 As a Secret Agent I should be allowed to log into a secret page for a reimbursement request
 As a Secret Agent I want to be able to create a request for traveling expense

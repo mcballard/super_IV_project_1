@@ -1,0 +1,13 @@
+Daily standup for 3/24/22
+
+    General progress:
+
+        Created ec2 group in aws for project 1 collaboration
+
+        Created project_one_sandbox schema and collaborator role to work in the sandbox
+
+    Blockers:
+
+        Create tables for application.
+
+        Create interfaces in python for db access.

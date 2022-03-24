@@ -4,15 +4,15 @@ from abc import ABC, abstractmethod
 class ReimbursementInterface(ABC):
 
     @abstractmethod
-    def log_in(self):
+    def log_in(self, username, password):
         pass
 
     @abstractmethod
-    def create_reimbursement_request(self):
+    def create_reimbursement_request(self, requested_amount, reimbursement_type, short_comment):
         pass
 
     @abstractmethod
-    def cancel_reimbursement_request(self):
+    def cancel_reimbursement_request(self, request_id):
         pass
 
     @abstractmethod
@@ -22,3 +22,4 @@ class ReimbursementInterface(ABC):
     @abstractmethod
     def log_out(self):
         pass
+

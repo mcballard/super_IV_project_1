@@ -4,9 +4,15 @@ employees table: may be pre populated
 	columns:
 		employee_id(pk) username(varchar 36) password(varchar 36) first(varchar 20) last(varchar 20)
 	
-
 	actions:
 		read to verify username and password
+
+reasons table:
+	columns:
+		reason_id(pk) description(varchar 20)
+	
+	actions:
+		read only
 
 reimbursement_requests table:
 	columns:
@@ -23,20 +29,11 @@ reimbursement_requests table:
 	should create entry in reimbursement_request_comments table (must give reason in comment section otherwise rollback creation and through error)
 	columns should be normalized as all numeric entries thus use of seperate comments table
 
-reasons table:
-	columns:
-		reason_id(pk) description(varchar 20)
-	
-
-	actions:
-		read only
-
 reimbursement_request_comments:
 	columns:
 		reimbursement_request_ccomment_id(pk) reimbursement_request_id(foreign key points to rr_id reimbursement_requests) comment(varchar 100)
 	other constraints:
 		on delete cascade
-
 
 	actions:
 		create, read, delete

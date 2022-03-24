@@ -1,0 +1,46 @@
+added schema for p1 called project_one_sandbox should be prepended to all table names in sql queries
+
+employees table: may be pre populated
+	columns:
+		employee_id(pk) username(varchar 36) password(varchar 36) first(varchar 20) last(varchar 20)
+	
+
+	actions:
+		read to verify username and password
+
+reimbursement_requests table:
+	columns:
+		reimbursment_request_id(pk) employee_id(foreign key points to employee_id employees) reason(int foreign key points to reason_id in reason) amount(dec 4, 2)
+	other constraints:
+		on delete cascade, check amount > 1 and amount < 1000
+
+	actions:
+		create, read, delete (cancel) a request should delete comments associated with reimbirsement_request_id in reimbursement_request_comments, 
+			sum on amount by employee_id can be used for the total amount
+	
+
+	should include a response confirming the succesful creation of the request (shall include rr_id category amount and comment)
+	should create entry in reimbursement_request_comments table (must give reason in comment section otherwise rollback creation and through error)
+	columns should be normalized as all numeric entries thus use of seperate comments table
+
+reasons table:
+	columns:
+		reason_id(pk) description(varchar 20)
+	
+
+	actions:
+		read only
+
+reimbursement_request_comments:
+	columns:
+		reimbursement_request_ccomment_id(pk) reimbursement_request_id(foreign key points to rr_id reimbursement_requests) comment(varchar 100)
+	other constraints:
+		on delete cascade
+
+
+	actions:
+		create, read, delete
+	
+
+
+

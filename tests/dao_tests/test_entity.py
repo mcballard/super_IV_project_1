@@ -10,9 +10,9 @@ def test_return_insert_sql_string_success():
         "last_name": "dean"}
     new_employee_str = RowEntity(dictionary_for_test)
     print(new_employee_str)
-    assert new_employee_str.return_insert_sql_string() == "insert into " \
-                                                      "project_one_sandbox.employees " \
-                                                      "values (default, 'newguy', 'password', 'jimmy', 'dean') returning *;"
+    assert new_employee_str.return_insert_sql_string() == "insert into project_one_sandbox.employees values " \
+                                                          "(default, 'newguy', 'password', 'jimmy', 'dean')" \
+                                                          " returning *;"
 
 
 def test_return_select_sql_string_success():

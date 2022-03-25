@@ -26,7 +26,6 @@ class DAOImp(ReimbursementInterface):
             else:
                 raise FailedTransaction("Record may have been created, but no results were returned.")
 
-
     def cancel_reimbursement_request(self, sql_query: str) -> bool:
         pass
 

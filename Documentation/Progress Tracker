@@ -1,0 +1,30 @@
+Progress Tracker
+
+DAO Interface - Dylan - completed - 3/24
+    dao_interface.py
+
+DAO IMP - Dylan - created - 3/24
+    dao_imp.py
+
+DAO Tests Package - Dylan - created - 3/24
+    tests folder
+    test_dao.py
+
+Connection Object - Dylan - completed - 3/24
+    connection_obj.py
+
+Row Entity - Matt - created - 3/25
+    data_entity_class folder
+    test_entity.py
+    row_entity.py
+    customer_exceptions folder
+    failed_transaction.py
+
+row_entity.py, test_entity.py, test_dao.py branched and modified by group
+    row_entity.return_delete_sql_string - Samantha
+    row_entity.return_insert_sql_string - Matt
+    row_entity.return_select_sql_string - Dylan
+    test_entity.test_return_select_sql_string_success - Matt
+    test_entity.test_return_delete_sql_string_success - Charles
+
+

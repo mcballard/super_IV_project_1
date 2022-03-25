@@ -16,7 +16,13 @@ def test_return_insert_sql_string_success():
 
 
 def test_return_select_sql_string_success():
-    pass
+    dictionary_for_test = {
+        "table_name": "reimbursement_requests",
+        "employee_id": 1
+    }
+    total_amount_requests_str = RowEntity(dictionary_for_test)
+    assert total_amount_requests_str == "select sum(amount) as total from project_one_sandbox.reimbursement_requests" \
+                                        " where employee_id=1;"
 
 
 def test_return_delete_sql_string_success():

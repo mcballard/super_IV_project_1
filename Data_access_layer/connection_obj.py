@@ -14,5 +14,6 @@ def create_connection():
     except OperationalError as e:
         raise OperationalError("Could not connect to database")
 
+
 connection = create_connection()
 print(connection)

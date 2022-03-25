@@ -21,11 +21,11 @@ Row Entity - Matt - created - 3/25
     failed_transaction.py
 
 row_entity.py, test_entity.py, test_dao.py branched and modified by group
-    row_entity.return_delete_sql_string - Samantha
+    row_entity.return_delete_sql_string - Samantha - completed
     row_entity.return_insert_sql_string - Matt - completed
     row_entity.return_select_sql_string - Dylan - completed
     test_entity.test_return_select_sql_string_success - Matt - completed
-    test_entity.test_return_delete_sql_string_success - Charles
+    test_entity.test_return_delete_sql_string_success - Charles - completed
     test_dao.test_select_total_amount_requested_success - Dylan
 
 

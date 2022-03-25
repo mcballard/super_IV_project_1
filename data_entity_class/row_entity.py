@@ -27,7 +27,13 @@ class RowEntity:
 
     def return_select_sql_string(self) -> str:
         # will construct and return a select statement in sql as a string
-        pass
+        sql_query = "select sum(amount) as total from " + self.dev_db_schema + self.row_entity_dict["table_name"] + " where employee_id="
+        for key in self.row_entity_dict:
+            if key != "table_name":
+                sql_query += str(self.row_entity_dict[key])
+        sql_query += ";"
+        return sql_query
+
 
     def return_delete_sql_string(self) -> str:
         # will construct and return a delete statement in sql as a string

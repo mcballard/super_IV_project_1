@@ -1,0 +1,10 @@
+Daily Standup for 3/25/22
+
+Progress:
+    database connection has been integrated
+    data layer interface has been completed
+
+To-do/Blockers
+    create entity class
+    design data layer test suite
+    implement data layer

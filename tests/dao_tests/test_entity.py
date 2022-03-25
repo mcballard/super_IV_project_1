@@ -26,5 +26,15 @@ def test_return_select_sql_string_success():
 
 
 def test_return_delete_sql_string_success():
-    pass
+    delete = {
+        "table_name": "reimbursement_requests",
+        "reimbursement_request_id": 1,
+    }
+    test_delete = RowEntity(delete)
+    test_string = test_delete.return_delete_sql_string()
+    assert test_string == "delete from project_one_sandbox.reimbursement_requests where reimbursement_request_id=1;"
+
+
+
+
 

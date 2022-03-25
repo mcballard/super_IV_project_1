@@ -24,7 +24,6 @@ def test_return_select_sql_string_success():
     total_str = total_amount_requests_str.return_select_sql_string()
     assert total_str == "select sum(amount) as total from project_one_sandbox.reimbursement_requests where employee_id=1;"
 
-
 def test_return_delete_sql_string_success():
     pass
 

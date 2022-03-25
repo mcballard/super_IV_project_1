@@ -36,6 +36,6 @@ class RowEntity:
 
     def return_delete_sql_string(self) -> str:
         # will construct and return a delete statement in sql as a string
-        sql_query = "delete from " + self.dev_db_schema + self.row_entity_dict["table_name"] + " where " \
+        sql_query = "delete from " + self.dev_db_schema + self.row_entity_dict["table_name"] + " where reimbursement_request_id=" \
                     + str(self.row_entity_dict["reimbursement_request_id"]) + ";"
         return sql_query

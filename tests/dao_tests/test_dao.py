@@ -16,4 +16,7 @@ def test_cancel_reimbursement_request_success():
 
 
 def test_select_total_amount_requested_success():
-    pass
+    sql_query = "select sum(amount) as total from project_one_sandbox.reimbursement_requests where employee_id=1"
+    total_amount = test_dao.select_total_amount_requested(sql_query)
+    assert total_amount != 0
+

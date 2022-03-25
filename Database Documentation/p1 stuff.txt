@@ -37,7 +37,17 @@ reimbursement_request_comments:
 
 	actions:
 		create, read, delete
-	
+
+
+
+create table project_one_sandbox.reimbursement_request_comments(
+reimbursement_request_comment_id serial primary key,
+rr_id  int,
+reimbursement_request_comment varchar(100),
+constraint rr_id_fk foreign key(rr_id) references project_one_sandbox.reimbursement_requests(rr_id) on delete cascade
+
+);
+
 
 
 

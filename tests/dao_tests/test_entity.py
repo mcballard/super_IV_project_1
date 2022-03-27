@@ -34,6 +34,14 @@ def test_return_delete_sql_string_success():
     assert test_string == "delete from project_one_sandbox.reimbursement_requests where reimbursement_request_id=1;"
 
 
+def test_return_json_friendly_dictionary():
+    test_dict = {
+        "this_is_snake_case": "something"
+    }
+    test_ent = RowEntity(test_dict)
+    result_dict = test_ent.return_json_friendly_dictionary()
+    assert result_dict["thisIsSnakeCase"] == "something"
+
 
 
 

@@ -27,5 +27,7 @@ row_entity.py, test_entity.py, test_dao.py branched and modified by group
     test_entity.test_return_select_sql_string_success - Matt - completed
     test_entity.test_return_delete_sql_string_success - Charles - completed
     test_dao.test_select_total_amount_requested_success - Dylan
+    test_entity.test_return_json_friendly_dictionary - Matt - completed
+    row_entity.return_json_friendly_dictionary - Matt - completed
 
 

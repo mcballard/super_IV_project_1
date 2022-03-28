@@ -1,5 +1,5 @@
+from Data_access_layer import dao_interface
 
-from Data_access_layer.dao_interface import ReimbursementInterface
 
 from custom_exceptions.failed_transaction import FailedTransaction
 from data_entity_class.row_entity import RowEntity
@@ -7,8 +7,6 @@ from service_access_layer.service_access_interface import ServiceAccessInterface
 
 
 class ServiceAccessIMP(ServiceAccessInterface):
-    def __init__(self, dao_object: ReimbursementInterface):
-        self.dao_object = dao_object
 
     def __init__(self, dao_object: dao_interface):
         self.dao_obj = dao_object

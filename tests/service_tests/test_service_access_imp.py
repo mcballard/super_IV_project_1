@@ -4,9 +4,6 @@ from custom_exceptions.failed_transaction import FailedTransaction
 from service_access_layer.service_access_imp import ServiceAccessIMP
 
 test_dao = DAOImp()
-
-
-test_dao = DAOImp()
 test_service = ServiceAccessIMP(test_dao)
 
 def test_service_create_reimbursement_request_comment_less_than_100():

@@ -1,7 +1,7 @@
 Test Plan
 
     Technologies being used:
-        AWS, postgres DB, EC2 Security groups
+        AWS, postgres DB, EC2 Security groups, S3 bucket for front end
         github for version control and collaboration
         pycharm for python development and testing with pytest
         pyscopg[binary] package for python postges db integration

@@ -32,5 +32,3 @@ row_entity.py, test_entity.py, test_dao.py branched and modified by group
     test_entity.test_return_json_friendly_dictionary - Matt - completed
     row_entity.return_json_friendly_dictionary - Matt - completed
     dao_imp.select_total_amount_requested - Dylan - completed
-
-

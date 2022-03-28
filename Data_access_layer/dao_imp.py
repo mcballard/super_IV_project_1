@@ -30,4 +30,23 @@ class DAOImp(ReimbursementInterface):
         pass
 
     def select_total_amount_requested(self, sql_query: str) -> float:
-        pass
+        cursor = connection.cursor()
+        cursor.execute(sql_query)
+        if cursor.rowcount < 1:
+            connection.rollback()
+            raise FailedTransaction("No record was viewed, transaction rolled back.")
+        else:
+            connection.commit()
+            new_record_tuple_list = cursor.fetchall()
+            column_names = [desc[0] for desc in cursor.description]
+            mapping = {}
+            if len(new_record_tuple_list) != 0:
+                for record in new_record_tuple_list:
+                    for i in range(len(column_names)):
+                        mapping.update({column_names[i]: record[i]})
+                    new_record = RowEntity(mapping)
+                    return new_record
+                else:
+                    raise FailedTransaction("No results were returned.")
+
+

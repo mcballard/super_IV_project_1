@@ -12,11 +12,15 @@ def test_create_reimbursement_request_success():
 
 
 def test_cancel_reimbursement_request_success():
-    pass
+    # may mock later so it passes, can change id to existing record otherwise
+    sql_query = "delete from project_one_sandbox.employees where employee_id = 22;"
+    return_value = test_dao.cancel_reimbursement_request(sql_query)
+    assert return_value
 
 
 def test_select_total_amount_requested_success():
-    sql_query = "select sum(amount) as total from project_one_sandbox.reimbursement_requests where employee_id=1"
+    sql_query = "select sum(employee_id) as total from project_one_sandbox.employees;"
     total_amount = test_dao.select_total_amount_requested(sql_query)
+    print(total_amount)
     assert total_amount != 0
 

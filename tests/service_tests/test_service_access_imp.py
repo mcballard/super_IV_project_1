@@ -1,4 +1,9 @@
+from Data_access_layer.dao_imp import DAOImp
+from custom_exceptions.failed_transaction import FailedTransaction
+from service_access_layer.service_access_imp import ServiceAccessIMP
 
+test_dao = DAOImp()
+test_service = ServiceAccessIMP(test_dao)
 
 def test_service_create_reimbursement_request_comment_less_than_100():
     pass
@@ -13,7 +18,12 @@ def test_service_create_reimbursement_request_success():
 
 
 def test_service_cancel_reimbursement_request_id_is_not_a_number():
-    pass
+    try:
+        bad_input = {"reimbursement_request_id": "not a number"}
+        test_service.service_cancel_reimbursement_request(bad_input)
+        assert False
+    except FailedTransaction as e:
+        assert str(e) == "Reimbursement Request ID should be numeric!"
 
 
 def test_service_cancel_reimbursement_request_success():

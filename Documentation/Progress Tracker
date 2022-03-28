@@ -32,5 +32,12 @@ row_entity.py, test_entity.py, test_dao.py branched and modified by group
     test_entity.test_return_json_friendly_dictionary - Matt - completed
     row_entity.return_json_friendly_dictionary - Matt - completed
     dao_imp.select_total_amount_requested - Dylan - completed
+    test_dao.test_cancel_reimbursement_request_success - Group - completed
+    dao_imp.cancel_reimbursement_request - Group - completed
+    service_layer_interface - Charles - completed
+    service_layer_imp - Charles - started
+    test_service.test here - Dylan
+    test_service.test here - Samantha
+    test_service.test here - Matt
 
 

@@ -79,7 +79,8 @@ def test_service_cancel_reimbursement_request_id_is_not_a_number():
         assert str(e) == "Reimbursement Request ID should be numeric!"
 
 
-def test_service_cancel_reimbursement_request_success():
+def test_service_cancel_reimbursement_request_success(mock):
+    
     pass
 
 

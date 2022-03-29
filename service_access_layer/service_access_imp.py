@@ -36,7 +36,7 @@ class ServiceAccessIMP(ServiceAccessInterface):
             raise FailedTransaction("The field containing the table name is in the wrong format, must be a string.")
         # the following regular expression should be used on any string value entering the db to prevent sql injection
         snake_case_dictionary["table_name"] = re.sub("[^A-Za-z_0-9]", "", snake_case_dictionary["table_name"])
-        try:
+        try: # check to see if table name is convertible to an integer or in other words is just a number in string form
             check_for_int_as_table_name = int(snake_case_dictionary["table_name"])
             if type(check_for_int_as_table_name) is int:
                 raise FailedTransaction("The table name should not be a number")

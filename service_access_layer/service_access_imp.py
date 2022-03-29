@@ -61,6 +61,6 @@ class ServiceAccessIMP(ServiceAccessInterface):
 
     def service_select_total_amount_requested(self, entity_dictionary: dict) -> float:
         if type(entity_dictionary["employee_id"]) == int:
-            return True
+            pass
         else:
             raise FailedTransaction("test reimbursement employee_id cannot use numeric type")

@@ -52,10 +52,12 @@ def test_sanitize_json_from_api_id_field_non_number():
 
 def test_service_create_reimbursement_request_comment_less_than_100():
     try:
-        test_dict = {"employee_id": 5,
-                     "reason_id": 5,
+        test_dict = {
+                     "tableName": "tablename",
+                     "employeeId": 5,
+                     "reasonId": 5,
                      "amount": 100,
-                     "reimbursement_request_comment": "service8910service8910service8910service8910service8910service8910service8910service8910service8910service8910service8910v"}
+                     "reimbursementRequestComment": "service8910service8910service8910service8910service8910service8910service8910service8910service8910service8910service8910v"}
         service_access_input = ServiceAccessIMP(test_dao)
         service_access_input.service_create_reimbursement_request(test_dict)
         assert False
@@ -65,10 +67,12 @@ def test_service_create_reimbursement_request_comment_less_than_100():
 
 def test_service_create_reimbursement_request_amount_between_1_and_1000():
     try:
-        test_dict = {"employee_id": 5,
-                     "reason_id": 5,
+        test_dict = {
+                     "tableName": "tablename",
+                     "employeeId": 5,
+                     "reasonId": 5,
                      "amount": 1000000,
-                     "reimbursement_request_comment": "this is ok"}
+                     "reimbursementRequestComment": "this is ok"}
         test_service.service_create_reimbursement_request(test_dict)
         assert False
     except FailedTransaction as e:
@@ -76,14 +80,22 @@ def test_service_create_reimbursement_request_amount_between_1_and_1000():
 
 
 def test_service_create_reimbursement_request_success():
-    
-    pass
+    new_record = {
+        "tableName": "reimbursement_requests",
+        "employeeId": 5,
+        "reasonId": 2,
+        "amount": 100,
+        "reimbursementRequestComment": "this is ok"
+    }
+    assert test_service.service_create_reimbursement_request(new_record).row_entity_dict["reimbursement_request_id"] is not None
+
+
 
 
 def test_service_cancel_reimbursement_request_id_is_not_a_number():
     try:
         test_dict = {
-            "reimbursement_request_id": "non-numeric"
+            "reimbursementRequestId": "non-numeric"
         }
         test_service.service_cancel_reimbursement_request(test_dict)
         assert False
@@ -97,10 +109,10 @@ def test_service_cancel_reimbursement_request_success():
 
 def test_service_select_total_amount_requested_employee_id_non_numeric():
     try:
-        test_dict = {"employee_id": "5",
-                     "reason_id": 5,
+        test_dict = {"employeeId": "5",
+                     "reasonId": 5,
                      "amount": 1000,
-                     "reimbursement_request_comment": "this is ok"}
+                     "reimbursementRequestComment": "this is ok"}
         test_service.service_select_total_amount_requested(test_dict)
         assert False
     except FailedTransaction as e:

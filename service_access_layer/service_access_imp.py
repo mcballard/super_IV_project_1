@@ -1,5 +1,4 @@
 from Data_access_layer import dao_interface
-
 from custom_exceptions.failed_transaction import FailedTransaction
 from data_entity_class.row_entity import RowEntity
 from service_access_layer.service_access_interface import ServiceAccessInterface

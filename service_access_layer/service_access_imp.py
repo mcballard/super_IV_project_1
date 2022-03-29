@@ -1,4 +1,3 @@
-from Data_access_layer import dao_interface
 from Data_access_layer.dao_interface import ReimbursementInterface
 from custom_exceptions.failed_transaction import FailedTransaction
 from data_entity_class.row_entity import RowEntity
@@ -12,7 +11,6 @@ class ServiceAccessIMP(ServiceAccessInterface):
     def service_create_reimbursement_request(self, entity_dictionary: dict) -> RowEntity:
         if len(entity_dictionary["request_comment"]) > 100:
             raise FailedTransaction("test service reimbursement request should not exceed 100")
-
 
     def service_cancel_reimbursement_request(self, entity_dictionary: dict) -> bool:
         pass

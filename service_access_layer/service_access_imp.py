@@ -47,8 +47,10 @@ class ServiceAccessIMP(ServiceAccessInterface):
         return snake_case_dictionary
 
     def service_create_reimbursement_request(self, entity_dictionary: dict) -> RowEntity:
-        if len(entity_dictionary["request_comment"]) > 100:
+        if len(entity_dictionary["reimbursement_request_comment"]) > 100:
             raise FailedTransaction("test service reimbursement request should not exceed 100")
+        if (entity_dictionary["amount"] < 1) or (entity_dictionary["amount"] > 1000):
+            raise FailedTransaction("reimbursement amount must be between $1 and $1000")
 
     def service_cancel_reimbursement_request(self, entity_dictionary: dict) -> bool:
         if type(entity_dictionary["reimbursement_request_id"]) == int:

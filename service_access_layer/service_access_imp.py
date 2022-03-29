@@ -11,7 +11,7 @@ class ServiceAccessIMP(ServiceAccessInterface):
     def __init__(self, dao_object: dao_interface):
         self.dao_obj = dao_object
 
-    def sanitize_json_from_api(json_from_api: dict) -> dict:
+    def sanitize_json_from_api(self, json_from_api: dict) -> dict:
         # this will change keys to snake_case and ensure they match database column names
         # this will also ensure number strings are convertible to the appropriate datatypes (i.e. ids are not words)
         # utilize regular expressions to parse the keys

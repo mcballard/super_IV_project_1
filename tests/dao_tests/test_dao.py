@@ -1,4 +1,4 @@
-squfrom Data_access_layer.dao_imp import DAOImp
+from Data_access_layer.dao_imp import DAOImp
 
 test_dao = DAOImp()
 

@@ -1,11 +1,5 @@
 from Data_access_layer.dao_imp import DAOImp
 from custom_exceptions.failed_transaction import FailedTransaction
-from service_access_layer.service_access_imp import ServiceAccessIMP
-
-test_dao = DAOImp()
-test_service = ServiceAccessIMP(test_dao)
-from Data_access_layer.dao_imp import DAOImp
-from custom_exceptions.failed_transaction import FailedTransaction
 from data_entity_class.row_entity import RowEntity
 from service_access_layer.service_access_imp import ServiceAccessIMP
 

@@ -91,7 +91,11 @@ def test_service_create_reimbursement_request_success():
 
 
 def test_service_cancel_reimbursement_request_success():
-    pass
+    cancel_request = {
+        "tableName": "reimbursement_requests",
+        "reimbursementRequestId": 2
+    }
+    assert test_service.service_cancel_reimbursement_request(cancel_request)
 
 
 def test_service_select_total_amount_requested_employee_id_success():

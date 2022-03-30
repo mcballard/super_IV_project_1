@@ -46,4 +46,8 @@ row_entity.py, test_entity.py, test_dao.py branched and modified by group
     test_service_access_imp.test_service_cancel_request_success and implementation - Dylan - completed
     test_service_access_imp.test_service_select_total_amount_requested_by_id - Samantha - completed
     service_access_imp.service_select_total_amount_requested - Charles - completed
+    api_layer.main.create_request - Matt - completed
+    api_layer.main.cancel_request - Dylan - completed
+    api_layer.main.select_request - Charles - completed
+
 

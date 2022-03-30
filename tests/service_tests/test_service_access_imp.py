@@ -98,6 +98,10 @@ def test_service_cancel_reimbursement_request_success():
     assert test_service.service_cancel_reimbursement_request(cancel_request)
 
 
-def test_service_select_total_amount_requested_employee_id_success():
-    pass
+def test_service_select_total_amount_requested_by_id_success():
+    amount_request = {
+        "tableName": "reimbursement_requests",
+        "employeeId": "5",
+    }
+    assert test_service.service_select_total_amount_requested(amount_request) == 2200
 

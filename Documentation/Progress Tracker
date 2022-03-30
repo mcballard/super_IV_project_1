@@ -42,4 +42,8 @@ row_entity.py, test_entity.py, test_dao.py branched and modified by group
     test_service_access_imp.test_sanitize_json_from_api_non_string_table_name - Matt - completed
     test_service_access_imp.test_sanitize_json_from_api_convertible_number - Matt - completed
     test_service_access_imp.test_sanitize_json_from_api_id_field_non_number - Matt - completed
-    test_service_access_imp.test__service_create_reimbursement_request_comment_less_than_100 - Charles - completed
+    test_service_access_imp.test_service_create_reimbursement_request_comment_less_than_100 - Charles - completed
+    test_service_access_imp.test_service_cancel_request_success and implementation - Dylan - completed
+    test_service_access_imp.test_service_select_total_amount_requested_by_id - Samantha - completed
+    service_access_imp.service_select_total_amount_requested - Charles - completed
+

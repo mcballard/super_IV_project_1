@@ -30,5 +30,21 @@ def create_request():
         }
         return jsonify(message), 400
 
+@app.route("/", methods=["DELETE"])
+def cancel_request():
+    try:
+        request_data: dict = request.get_json()
+        result = service_object.service_cancel_reimbursement_request(request_data)
+        result_dictionary = {
+            "message": result
+        }
+        result_json = jsonify(result_dictionary)
+        return result_json, 201
+    except FailedTransaction as e:
+        message = {
+            "message": str(e)
+        }
+        return jsonify(message), 400
+
 
 app.run()

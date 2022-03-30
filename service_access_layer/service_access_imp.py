@@ -93,7 +93,9 @@ class ServiceAccessIMP(ServiceAccessInterface):
     def service_cancel_reimbursement_request(self, entity_dictionary: dict) -> bool:
         cancel_input = self.sanitize_json_from_api(entity_dictionary)
         if type(cancel_input["reimbursement_request_id"]) == int:
-            return True
+            canceled_request = RowEntity(cancel_input)
+            sql_query_for_cancel_reimbursement_request = canceled_request.return_delete_sql_string()
+            return self.dao_obj.cancel_reimbursement_request(sql_query_for_cancel_reimbursement_request)
         else:
             raise FailedTransaction("Reimbursement Request ID should be numeric!")
 

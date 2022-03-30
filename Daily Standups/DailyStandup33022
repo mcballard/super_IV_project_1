@@ -4,4 +4,9 @@ Progress:
     finishing up service layer
 
 to do/blockers:
-    get tests passing
+    get tests passing - Done
+    finish service layer imp - done
+    start api -
+        need to prepare all appropriate postman tests to match the pytest tests
+    bug/defect caught in postman testing - low priority/low severity "malformed dictionary"
+        please see defect report for more information.

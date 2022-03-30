@@ -95,7 +95,7 @@ def test_service_create_reimbursement_request_success():
 def test_service_cancel_reimbursement_request_id_is_not_a_number():
     try:
         test_dict = {
-            "reimbursementRequestId": "non-numeric"
+            "reimbursementRequestId": "5"
         }
         test_service.service_cancel_reimbursement_request(test_dict)
         assert False

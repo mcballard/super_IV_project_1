@@ -93,7 +93,7 @@ def test_service_create_reimbursement_request_success():
 def test_service_cancel_reimbursement_request_success():
     cancel_request = {
         "tableName": "reimbursement_requests",
-        "reimbursementRequestId": 2
+        "reimbursementRequestId": 3
     }
     assert test_service.service_cancel_reimbursement_request(cancel_request)
 

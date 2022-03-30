@@ -91,13 +91,15 @@ class ServiceAccessIMP(ServiceAccessInterface):
         return new_record
 
     def service_cancel_reimbursement_request(self, entity_dictionary: dict) -> bool:
-        if type(entity_dictionary["reimbursement_request_id"]) == int:
+        cancel_input = self.sanitize_json_from_api(entity_dictionary)
+        if type(cancel_input["reimbursement_request_id"]) == int:
             return True
         else:
             raise FailedTransaction("Reimbursement Request ID should be numeric!")
 
     def service_select_total_amount_requested(self, entity_dictionary: dict) -> float:
-        if type(entity_dictionary["employee_id"]) == int:
+        select_input = self.sanitize_json_from_api(entity_dictionary)
+        if type(select_input["employee_id"]) == int:
             return True
         else:
             raise FailedTransaction("test reimbursement employee_id cannot use numeric type")

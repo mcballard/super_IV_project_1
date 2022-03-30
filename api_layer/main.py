@@ -1,0 +1,34 @@
+"""This module can be used in conjunction with the for_fetch.html file to see how you can create an http request body"""
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+
+from Data_access_layer.dao_imp import DAOImp
+from custom_exceptions.failed_transaction import FailedTransaction
+from service_access_layer.service_access_imp import ServiceAccessIMP
+
+"""
+Make sure you have flask and flask-cors installed from pypi
+"""
+app: Flask = Flask(__name__)
+CORS(app)  # use this to avoid cors errors
+
+data_object = DAOImp()
+service_object = ServiceAccessIMP(data_object)
+
+
+@app.route("/", methods=["POST"])
+def create_request():
+    try:
+        request_data: dict = request.get_json()
+        result = service_object.service_create_reimbursement_request(request_data)
+        result_dictionary = result.return_json_friendly_dictionary()
+        result_json = jsonify(result_dictionary)
+        return result_json, 201
+    except FailedTransaction as e:
+        message = {
+            "message": str(e)
+        }
+        return jsonify(message), 400
+
+
+app.run()

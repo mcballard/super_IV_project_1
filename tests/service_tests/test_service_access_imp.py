@@ -1,10 +1,10 @@
 from Data_access_layer.dao_imp import DAOImp
 from custom_exceptions.failed_transaction import FailedTransaction
-from data_entity_class.row_entity import RowEntity
 from service_access_layer.service_access_imp import ServiceAccessIMP
 
 test_dao = DAOImp()
 test_service = ServiceAccessIMP(test_dao)
+
 
 def test_sanitize_json_from_api_success():
     test_dict = {
@@ -90,33 +90,8 @@ def test_service_create_reimbursement_request_success():
     assert test_service.service_create_reimbursement_request(new_record).row_entity_dict["reimbursement_request_id"] is not None
 
 
-
-
-def test_service_cancel_reimbursement_request_id_is_not_a_number():
-    try:
-        test_dict = {
-            "reimbursementRequestId": "5"
-        }
-        test_service.service_cancel_reimbursement_request(test_dict)
-        assert False
-    except FailedTransaction as e:
-        assert str(e) == "Reimbursement Request ID should be numeric!"
-
-
 def test_service_cancel_reimbursement_request_success():
     pass
-
-
-def test_service_select_total_amount_requested_employee_id_non_numeric():
-    try:
-        test_dict = {"employeeId": "5",
-                     "reasonId": 5,
-                     "amount": 1000,
-                     "reimbursementRequestComment": "this is ok"}
-        test_service.service_select_total_amount_requested(test_dict)
-        assert False
-    except FailedTransaction as e:
-        assert str(e) == "test reimbursement employee_id cannot use numeric type"
 
 
 def test_service_select_total_amount_requested_employee_id_success():

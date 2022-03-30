@@ -42,7 +42,7 @@ class RowEntity:
         for key in self.row_entity_dict:
             commas += 1
             if key != "table_name":
-                sql_query += "'" + self.row_entity_dict[key] + "'"
+                sql_query += "'" + str(self.row_entity_dict[key]) + "'"
             if commas < too_many_commas and key != "table_name":
                 sql_query += ", "
         sql_query += ") returning *;"

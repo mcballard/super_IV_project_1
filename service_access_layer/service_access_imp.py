@@ -53,7 +53,7 @@ class ServiceAccessIMP(ServiceAccessInterface):
         # perform business case logic
         if len(new_request["reimbursement_request_comment"]) > 100:
             raise FailedTransaction("test service reimbursement request should not exceed 100")
-        if (new_request["amount"] < 1) or (new_request["amount"] > 1000):
+        if (float(new_request["amount"]) < 1) or (float(new_request["amount"]) > 1000):
             raise FailedTransaction("reimbursement amount must be between $1 and $1000")
         # since the api dictionary contained the comment information as well we need to separate it from this dictionary
         # in order to create to separate table entries one for the request itself and one for the comment

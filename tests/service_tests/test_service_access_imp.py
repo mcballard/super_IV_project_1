@@ -90,6 +90,22 @@ def test_service_create_reimbursement_request_success():
     assert test_service.service_create_reimbursement_request(new_record).row_entity_dict["reimbursement_request_id"] is not None
 
 
+def test_service_create_reimbursement_request_catch_amount_non_numeric():
+    bad_record = {
+        "tableName": "reimbursement_requests",
+        "employeeId": 5,
+        "reasonId": 2,
+        "amount": "Hello there",
+        "reimbursementRequestComment": "this is ok"
+    }
+    try:
+        test_service.service_create_reimbursement_request(bad_record)
+        assert False
+    except FailedTransaction as e:
+        assert str(e) == "The amount should be a numeric value"
+
+
+
 def test_service_cancel_reimbursement_request_success():
     cancel_request = {
         "tableName": "reimbursement_requests",

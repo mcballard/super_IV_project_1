@@ -34,6 +34,14 @@ class ServiceAccessIMP(ServiceAccessInterface):
             raise FailedTransaction("The field containing the table name is in the wrong format, must be a string.")
         # the following regular expression should be used on any string value entering the db to prevent sql injection
         snake_case_dictionary["table_name"] = re.sub("[^A-Za-z_0-9]", "", snake_case_dictionary["table_name"])
+        for key in snake_case_dictionary:
+            if key == "amount":
+                try:
+                    check_for_float_as_amount = float(snake_case_dictionary["amount"])
+                    if type(check_for_float_as_amount) is float:
+                        break
+                except ValueError as e:
+                    raise FailedTransaction("The amount should be a numeric value")
         try:
             check_for_int_as_table_name = int(snake_case_dictionary["table_name"])
             if type(check_for_int_as_table_name) is int:
@@ -53,6 +61,8 @@ class ServiceAccessIMP(ServiceAccessInterface):
         # perform business case logic
         if len(new_request["reimbursement_request_comment"]) > 100:
             raise FailedTransaction("test service reimbursement request should not exceed 100")
+        if (type(new_request["amount"]) != float) and (type(new_request["amount"]) != int):
+            raise FailedTransaction("The amount should be a numeric value")
         if (float(new_request["amount"]) < 1) or (float(new_request["amount"]) > 1000):
             raise FailedTransaction("reimbursement amount must be between $1 and $1000")
         # since the api dictionary contained the comment information as well we need to separate it from this dictionary

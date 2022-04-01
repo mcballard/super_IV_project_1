@@ -2,18 +2,20 @@ from Data_access_layer.dao_imp import DAOImp
 
 test_dao = DAOImp()
 
+
 def test_select_record_success():
     sql_query = "select employee_id, username, pass from " \
                     "project_one_sandbox.employees where username='jb007'"
     login = test_dao.select_record(sql_query)
-    assert login.row_entity_dict["employee_id"] == "jb007"
+    assert login.row_entity_dict["username"] == "jb007"
 
-
+"""
 def test_create_reimbursement_request_success():
-    sql_query = "insert into project_one_sandbox.employees " \
-                "values (default, 'newguy', 'password', 'jimmy', 'dean') returning *;"
+    sql_query = "insert into project_one_sandbox.reimbursement_requests " \
+                "values (default, '2', '3', '200') returning ;insert into " \
+                "project_one_sandbox.reimbursement_request_comments " \
+                "values (default, )"
     new_employee = test_dao.create_reimbursement_request(sql_query)
-    print(new_employee.row_entity_dict["employee_id"])
     assert new_employee.row_entity_dict["employee_id"] != -1
 
 
@@ -22,11 +24,11 @@ def test_cancel_reimbursement_request_success():
     sql_query = "delete from project_one_sandbox.employees where employee_id = 22;"
     return_value = test_dao.cancel_reimbursement_request(sql_query)
     assert return_value
+"""
 
 
 def test_select_total_amount_requested_success():
     sql_query = "select sum(employee_id) as total from project_one_sandbox.employees;"
     total_amount = test_dao.select_total_amount_requested(sql_query)
-    print(total_amount)
     assert total_amount != 0
 

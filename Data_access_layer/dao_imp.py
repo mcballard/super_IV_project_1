@@ -11,7 +11,7 @@ class DAOImp(ReimbursementInterface):
         cursor.execute(sql_query)
         if cursor.rowcount < 1:
             connection.rollback()
-            raise FailedTransaction("No record was created, transaction rolled back.")
+            raise FailedTransaction("No record found!")
         else:
             connection.commit()
             new_record_tuple_list = cursor.fetchall()

@@ -3,6 +3,7 @@ from collections.abc import Mapping
 from re import sub
 from Data_access_layer import dao_interface
 from custom_exceptions.failed_transaction import FailedTransaction
+from data_entity_class.employee_login import EmployeeLogin
 from data_entity_class.row_entity import RowEntity
 from service_access_layer.service_access_interface import ServiceAccessInterface
 
@@ -11,6 +12,19 @@ class ServiceAccessIMP(ServiceAccessInterface):
 
     def __init__(self, dao_object: dao_interface):
         self.dao_obj = dao_object
+
+    def do_login(self, login_info):
+        employee_to_login = EmployeeLogin(login_info)
+        employee: RowEntity = self.dao_obj.select_record(employee_to_login.return_select_sql_string())
+        if login_info["username"] == employee.row_entity_dict["username"]:
+            if login_info["password"] == employee.row_entity_dict["pass"]:
+                return employee.row_entity_dict["username"] + \
+                            employee.row_entity_dict["pass"] + \
+                            str(employee.row_entity_dict["employee_id"])
+            else:
+                raise FailedTransaction("Password is incorrect!")
+        else:
+            raise FailedTransaction("Username is incorrect!")
 
     def sanitize_json_from_api(self, json_from_api: dict) -> dict:
         # this will change keys to snake_case and ensure they match database column names

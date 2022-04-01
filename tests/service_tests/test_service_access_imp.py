@@ -105,7 +105,6 @@ def test_service_create_reimbursement_request_catch_amount_non_numeric():
         assert str(e) == "The amount should be a numeric value"
 
 
-
 def test_service_cancel_reimbursement_request_success():
     cancel_request = {
         "tableName": "reimbursement_requests",

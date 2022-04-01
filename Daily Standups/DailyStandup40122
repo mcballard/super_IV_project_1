@@ -1,0 +1,11 @@
+Daily Standup for 4/1/22
+
+Progress:
+    created basic webpage and tested create request
+
+To Do/Blockers:
+    create login/logout
+    make page nice looking
+    implement the rest of the functionality on the page
+    create tests on postman
+    organize tests in python add any more we can think of

@@ -14,3 +14,7 @@ severity:
 priority:
     low - this should not affect the functionality overall but should be addressed to avoid
             man in the middle situations from halting execution
+
+status:
+    fixed - adjusted sanitize api and create reimbursement record methods to properly handle exception and
+            convert the amount to a float.

@@ -8,6 +8,9 @@ Test Plan
         Flask package for python API integration
         Postman for RESTful testing
         Excalidraw for wireframe design https://excalidraw.com
+        Selenium for automated end to end tests
+        Flask-Cors for allowing responses from our pages
+        Behave, Cucumber to help interpret our user acceptance criteria into steps for selenium
 
     Deadlines:
         Daily Standups will be conducted.

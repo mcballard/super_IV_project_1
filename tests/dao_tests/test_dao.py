@@ -2,6 +2,12 @@ from Data_access_layer.dao_imp import DAOImp
 
 test_dao = DAOImp()
 
+def test_select_record_success():
+    sql_query = "select employee_id, username, pass from " \
+                    "project_one_sandbox.employees where username='jb007'"
+    login = test_dao.select_record(sql_query)
+    assert login.row_entity_dict["employee_id"] == "jb007"
+
 
 def test_create_reimbursement_request_success():
     sql_query = "insert into project_one_sandbox.employees " \

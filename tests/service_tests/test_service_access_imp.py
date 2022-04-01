@@ -6,6 +6,51 @@ test_dao = DAOImp()
 test_service = ServiceAccessIMP(test_dao)
 
 
+def test_do_login_success():
+    test_login = {
+        "tableName": "employees",
+        "username": "jb007",
+        "password": "shakennotstirred"
+    }
+    assert test_service.do_login(test_login) == "jb007""shakennotstirred""employee_id"
+
+def test_do_login_wrong_password():
+    try:
+        test_login = {
+            "tableName": "employees",
+            "username": "jb007",
+            "password": "thisiswrong"
+        }
+        test_service.do_login(test_login)
+        assert False
+    except FailedTransaction as e:
+        assert str(e) == "Password is incorrect!"
+
+def test_do_login_wrong_username():
+    try:
+        test_login = {
+            "tableName": "employees",
+            "username": "thisiswrong",
+            "password": "shakennotstirred"
+        }
+        test_service.do_login(test_login)
+        assert False
+    except FailedTransaction as e:
+        assert str(e) == "Username is incorrect!"
+
+
+def test_record_does_not_exist():
+    try:
+        test_login = {
+            "tableName": "employees",
+            "username": "doesnotexist",
+            "password": "doesnotexist"
+        }
+        test_service.do_login(test_login)
+        assert False
+    except FailedTransaction as e:
+        assert str(e) == "No record found!"
+
 def test_sanitize_json_from_api_success():
     test_dict = {
         "tableName": "tablename",

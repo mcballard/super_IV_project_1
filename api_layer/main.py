@@ -34,10 +34,16 @@ def login():
 def create_request():
     try:
         request_data: dict = request.get_json()
-        result = service_object.service_create_reimbursement_request(request_data)
-        result_dictionary = result.return_json_friendly_dictionary()
-        result_json = jsonify(result_dictionary)
-        return result_json, 201
+        for token in request_data:
+            if token == "token":
+                result = service_object.service_create_reimbursement_request(request_data)
+                result_dictionary = result.return_json_friendly_dictionary()
+                result_json = jsonify(result_dictionary)
+                return result_json, 201
+        message = {
+            "message": "Access Denied"
+        }
+        return jsonify(message), 400
     except FailedTransaction as e:
         message = {
             "message": str(e)
@@ -49,12 +55,18 @@ def create_request():
 def cancel_request():
     try:
         request_data: dict = request.get_json()
-        result = service_object.service_cancel_reimbursement_request(request_data)
-        result_dictionary = {
-            "message": result
+        for token in request_data:
+            if token == "token":
+                result = service_object.service_cancel_reimbursement_request(request_data)
+                result_dictionary = {
+                    "message": result
+                }
+                result_json = jsonify(result_dictionary)
+                return result_json, 201
+        message = {
+            "message": "Access Denied"
         }
-        result_json = jsonify(result_dictionary)
-        return result_json, 201
+        return jsonify(message), 400
     except FailedTransaction as e:
         message = {
             "message": str(e)
@@ -66,12 +78,18 @@ def cancel_request():
 def select_request():
     try:
         request_data: dict = request.get_json()
-        result = service_object.service_select_total_amount_requested(request_data)
-        result_dictionary = {
-            "message": result
+        for token in request_data:
+            if token == "token":
+                result = service_object.service_select_total_amount_requested(request_data)
+                result_dictionary = {
+                    "message": result
+                }
+                result_json = jsonify(result_dictionary)
+                return result_json, 201
+        message = {
+            "message": "Access Denied"
         }
-        result_json = jsonify(result_dictionary)
-        return result_json, 201
+        return jsonify(message), 400
     except FailedTransaction as e:
         message = {
             "message": str(e)

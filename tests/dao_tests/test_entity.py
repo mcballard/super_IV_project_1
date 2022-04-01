@@ -1,8 +1,5 @@
+from data_entity_class.employee_login import EmployeeLogin
 from data_entity_class.row_entity import RowEntity
-
-
-class EmployeeEntity:
-    pass
 
 
 def test_return_select_sql_string():
@@ -10,9 +7,10 @@ def test_return_select_sql_string():
         "table_name": "employees",
         "username": "jb007"
     }
-    login_info_string = EmployeeEntity(test_dictionary)
+    login_info_string = EmployeeLogin(test_dictionary)
     assert login_info_string.return_select_sql_string() == "select employee_id, username, pass from " \
                                                            "project_one_sandbox.employees where username='jb007';"
+
 
 def test_return_insert_sql_string_success():
     dictionary_for_test = {

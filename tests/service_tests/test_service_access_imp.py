@@ -12,7 +12,7 @@ def test_do_login_success():
         "username": "jb007",
         "password": "shakennotstirred"
     }
-    assert test_service.do_login(test_login) == "jb007""shakennotstirred""employee_id"
+    assert test_service.do_login(test_login) == "jb007shakennotstirred1"
 
 def test_do_login_wrong_password():
     try:
@@ -51,6 +51,7 @@ def test_record_does_not_exist():
     except FailedTransaction as e:
         assert str(e) == "No record found!"
 
+
 def test_sanitize_json_from_api_success():
     test_dict = {
         "tableName": "tablename",
@@ -74,7 +75,7 @@ def test_sanitize_json_from_api_non_string_table_name():
 def test_sanitize_json_from_api_convertible_number():
     try:
         test_dict = {
-            "tableName": "5",
+            "tableName": "4",
             "tableNameId": 1
         }
         test_service.sanitize_json_from_api(test_dict)
@@ -99,7 +100,7 @@ def test_service_create_reimbursement_request_comment_less_than_100():
     try:
         test_dict = {
                      "tableName": "tablename",
-                     "employeeId": 5,
+                     "employeeId": 4,
                      "reasonId": 5,
                      "amount": 100,
                      "reimbursementRequestComment": "service8910service8910service8910service8910service8910service8910service8910service8910service8910service8910service8910v"}
@@ -114,7 +115,7 @@ def test_service_create_reimbursement_request_amount_between_1_and_1000():
     try:
         test_dict = {
                      "tableName": "tablename",
-                     "employeeId": 5,
+                     "employeeId": 4,
                      "reasonId": 5,
                      "amount": 1000000,
                      "reimbursementRequestComment": "this is ok"}
@@ -127,7 +128,7 @@ def test_service_create_reimbursement_request_amount_between_1_and_1000():
 def test_service_create_reimbursement_request_success():
     new_record = {
         "tableName": "reimbursement_requests",
-        "employeeId": 5,
+        "employeeId": 4,
         "reasonId": 2,
         "amount": 100,
         "reimbursementRequestComment": "this is ok"
@@ -138,7 +139,7 @@ def test_service_create_reimbursement_request_success():
 def test_service_create_reimbursement_request_catch_amount_non_numeric():
     bad_record = {
         "tableName": "reimbursement_requests",
-        "employeeId": 5,
+        "employeeId": 4,
         "reasonId": 2,
         "amount": "Hello there",
         "reimbursementRequestComment": "this is ok"
@@ -161,7 +162,7 @@ def test_service_cancel_reimbursement_request_success():
 def test_service_select_total_amount_requested_by_id_success():
     amount_request = {
         "tableName": "reimbursement_requests",
-        "employeeId": "5",
+        "employeeId": "4",
     }
     assert test_service.service_select_total_amount_requested(amount_request) == 2200
 

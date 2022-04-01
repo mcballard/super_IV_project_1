@@ -13,27 +13,24 @@
 </body>
 
 <script>
-
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-
-    loginJSON = {
-        "username": username,
-        "password": password
-    }
-
+  
     async function doLogin() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        loginJSON = {
+            "username": username,
+            "password": password
+        }
         let loginInfo = {
-            method:"PUT",
+            method:"POST",
             headers:{'Content-Type':"application/json"},
             body: JSON.stringify(loginJSON)
         }
-        const response = await fetch("http://localhost:5000/", loginInfo);
+        const response = await fetch("http://localhost:5000/login", loginInfo);
         if (response.status === 201) {
-            
             const apiResponse = await response.json();
             alert(apiResponse.message);
-            window.localStorage.setItem("token", apiResponse.token);
+            window.sessionStorage.setItem("token", apiResponse.token);
             window.location.href = "secretagentpage.html"
         } else if (response.status === 200) { 
             const apiResponse = await response.json();

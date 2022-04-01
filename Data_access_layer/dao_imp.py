@@ -9,12 +9,12 @@ class DAOImp(ReimbursementInterface):
     def select_record(self, sql_query) -> RowEntity:
         cursor = connection.cursor()
         cursor.execute(sql_query)
+        new_record_tuple_list = cursor.fetchall()
         if cursor.rowcount < 1:
             connection.rollback()
             raise FailedTransaction("Username is incorrect!")
         else:
             connection.commit()
-            new_record_tuple_list = cursor.fetchall()
             column_names = [desc[0] for desc in cursor.description]
             mapping = {}
             if len(new_record_tuple_list) != 0:

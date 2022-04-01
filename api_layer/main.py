@@ -13,7 +13,7 @@ data_object = DAOImp()
 service_object = ServiceAccessIMP(data_object)
 
 
-@app.route("/", methods=["PUT"])
+@app.route("/login", methods=["POST"])
 def login():
     try:
         login_dict: dict = request.get_json()
@@ -36,6 +36,7 @@ def create_request():
         request_data: dict = request.get_json()
         for token in request_data:
             if token == "token":
+                request_data.pop("token")
                 result = service_object.service_create_reimbursement_request(request_data)
                 result_dictionary = result.return_json_friendly_dictionary()
                 result_json = jsonify(result_dictionary)
@@ -57,6 +58,7 @@ def cancel_request():
         request_data: dict = request.get_json()
         for token in request_data:
             if token == "token":
+                request_data.pop("token")
                 result = service_object.service_cancel_reimbursement_request(request_data)
                 result_dictionary = {
                     "message": result
@@ -80,6 +82,7 @@ def select_request():
         request_data: dict = request.get_json()
         for token in request_data:
             if token == "token":
+                request_data.pop("token")
                 result = service_object.service_select_total_amount_requested(request_data)
                 result_dictionary = {
                     "message": result

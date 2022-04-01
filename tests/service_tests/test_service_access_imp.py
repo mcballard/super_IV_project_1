@@ -14,6 +14,7 @@ def test_do_login_success():
     }
     assert test_service.do_login(test_login) == "jb007shakennotstirred1"
 
+
 def test_do_login_wrong_password():
     try:
         test_login = {
@@ -26,6 +27,7 @@ def test_do_login_wrong_password():
     except FailedTransaction as e:
         assert str(e) == "Password is incorrect!"
 
+
 def test_do_login_wrong_username():
     try:
         test_login = {
@@ -37,19 +39,6 @@ def test_do_login_wrong_username():
         assert False
     except FailedTransaction as e:
         assert str(e) == "Username is incorrect!"
-
-
-def test_record_does_not_exist():
-    try:
-        test_login = {
-            "tableName": "employees",
-            "username": "doesnotexist",
-            "password": "doesnotexist"
-        }
-        test_service.do_login(test_login)
-        assert False
-    except FailedTransaction as e:
-        assert str(e) == "No record found!"
 
 
 def test_sanitize_json_from_api_success():
@@ -151,18 +140,18 @@ def test_service_create_reimbursement_request_catch_amount_non_numeric():
         assert str(e) == "The amount should be a numeric value"
 
 
-def test_service_cancel_reimbursement_request_success():
-    cancel_request = {
-        "tableName": "reimbursement_requests",
-        "reimbursementRequestId": 3
-    }
-    assert test_service.service_cancel_reimbursement_request(cancel_request)
-
-
 def test_service_select_total_amount_requested_by_id_success():
     amount_request = {
         "tableName": "reimbursement_requests",
-        "employeeId": "4",
+        "employeeId": 4,
     }
-    assert test_service.service_select_total_amount_requested(amount_request) == 2200
+    assert test_service.service_select_total_amount_requested(amount_request) == 100
+
+
+def test_service_cancel_reimbursement_request_success():
+    cancel_request = {
+        "tableName": "reimbursement_requests",
+        "reimbursementRequestId": 1
+    }
+    assert test_service.service_cancel_reimbursement_request(cancel_request)
 

@@ -11,7 +11,7 @@ class DAOImp(ReimbursementInterface):
         cursor.execute(sql_query)
         if cursor.rowcount < 1:
             connection.rollback()
-            raise FailedTransaction("No record found!")
+            raise FailedTransaction("Username is incorrect!")
         else:
             connection.commit()
             new_record_tuple_list = cursor.fetchall()
@@ -25,7 +25,6 @@ class DAOImp(ReimbursementInterface):
                 return new_record
             else:
                 raise FailedTransaction("Record may have been created, but no results were returned.")
-
 
     def create_reimbursement_request(self, sql_query: str) -> RowEntity:
         cursor = connection.cursor()

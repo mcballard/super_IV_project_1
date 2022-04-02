@@ -13,11 +13,23 @@
     <title>Super Secret Login</title>
 </head>
 <body bgcolor="black">
-    <h3>Enter login information:</h3>
-    Username:<input id="username"><br>
-    Password: <input id="password"><br>
-    <button id="submitInfo" onclick="doLogin()">Login</button>
-
+    <table>
+        <tr>
+            <td><h3>Enter login information:</h3></td>
+        </tr>
+        <tr>
+            <td align="right">Username:</td>
+            <td><input id="username"></td>
+        </tr>
+        <tr>
+            <td align="right">Password:</td>
+            <td><input id="password"><br></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button id="submitInfo" onclick="doLogin()">Login</button></td>
+        </tr>
+    </table>
 </body>
 
 <script>

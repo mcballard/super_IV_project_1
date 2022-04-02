@@ -35,10 +35,12 @@ class ServiceAccessIMP(ServiceAccessInterface):
         # application specific search for keys with _id should be implemented here including for checks
         # on any other number type expected key, value pairs to ensure values are convertible types
         for key in snake_case_dictionary:
+            print(snake_case_dictionary[key])
             if re.search("_id", key):
                 try:
                     proper_int_format = int(snake_case_dictionary[key])
-                    snake_case_dictionary[key] = proper_int_format
+                    if type(proper_int_format) == int:
+                        snake_case_dictionary[key] = proper_int_format
                 except ValueError as e:
                     raise FailedTransaction("The input from the api is not convertible to integer for an id field.")
         if type(snake_case_dictionary["table_name"]) is not str:
@@ -50,6 +52,7 @@ class ServiceAccessIMP(ServiceAccessInterface):
                 try:
                     check_for_float_as_amount = float(snake_case_dictionary["amount"])
                     if type(check_for_float_as_amount) is float:
+                        snake_case_dictionary["amount"] = check_for_float_as_amount
                         break
                 except ValueError as e:
                     raise FailedTransaction("The amount should be a numeric value")
@@ -113,6 +116,7 @@ class ServiceAccessIMP(ServiceAccessInterface):
 
     def service_cancel_reimbursement_request(self, entity_dictionary: dict) -> bool:
         cancel_input = self.sanitize_json_from_api(entity_dictionary)
+        print(cancel_input)
         if type(cancel_input["reimbursement_request_id"]) == int:
             canceled_request = RowEntity(cancel_input)
             sql_query_for_cancel_reimbursement_request = canceled_request.return_delete_sql_string()

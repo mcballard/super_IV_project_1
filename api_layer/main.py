@@ -36,11 +36,12 @@ def create_request():
         request_data: dict = request.get_json()
         for token in request_data:
             if token == "token":
-                request_data.pop("token")
-                result = service_object.service_create_reimbursement_request(request_data)
-                result_dictionary = result.return_json_friendly_dictionary()
-                result_json = jsonify(result_dictionary)
-                return result_json, 201
+                if request_data[token] is not None:
+                    request_data.pop("token")
+                    result = service_object.service_create_reimbursement_request(request_data)
+                    result_dictionary = result.return_json_friendly_dictionary()
+                    result_json = jsonify(result_dictionary)
+                    return result_json, 201
         message = {
             "message": "Access Denied"
         }
@@ -58,13 +59,14 @@ def cancel_request():
         request_data: dict = request.get_json()
         for token in request_data:
             if token == "token":
-                request_data.pop("token")
-                result = service_object.service_cancel_reimbursement_request(request_data)
-                result_dictionary = {
-                    "message": result
-                }
-                result_json = jsonify(result_dictionary)
-                return result_json, 201
+                if request_data[token] is not None:
+                    request_data.pop("token")
+                    result = service_object.service_cancel_reimbursement_request(request_data)
+                    result_dictionary = {
+                        "message": result
+                    }
+                    result_json = jsonify(result_dictionary)
+                    return result_json, 201
         message = {
             "message": "Access Denied"
         }
@@ -82,13 +84,14 @@ def select_request():
         request_data: dict = request.get_json()
         for token in request_data:
             if token == "token":
-                request_data.pop("token")
-                result = service_object.service_select_total_amount_requested(request_data)
-                result_dictionary = {
-                    "message": result
-                }
-                result_json = jsonify(result_dictionary)
-                return result_json, 201
+                if request_data[token] is not None:
+                    request_data.pop("token")
+                    result = service_object.service_select_total_amount_requested(request_data)
+                    result_dictionary = {
+                        "message": result
+                    }
+                    result_json = jsonify(result_dictionary)
+                    return result_json, 201
         message = {
             "message": "Access Denied"
         }

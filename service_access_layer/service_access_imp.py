@@ -35,7 +35,6 @@ class ServiceAccessIMP(ServiceAccessInterface):
         # application specific search for keys with _id should be implemented here including for checks
         # on any other number type expected key, value pairs to ensure values are convertible types
         for key in snake_case_dictionary:
-            print(snake_case_dictionary[key])
             if re.search("_id", key):
                 try:
                     proper_int_format = int(snake_case_dictionary[key])
@@ -116,7 +115,6 @@ class ServiceAccessIMP(ServiceAccessInterface):
 
     def service_cancel_reimbursement_request(self, entity_dictionary: dict) -> bool:
         cancel_input = self.sanitize_json_from_api(entity_dictionary)
-        print(cancel_input)
         if type(cancel_input["reimbursement_request_id"]) == int:
             canceled_request = RowEntity(cancel_input)
             sql_query_for_cancel_reimbursement_request = canceled_request.return_delete_sql_string()

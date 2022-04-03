@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>
     <style>
         body {
             background-image: url("spyvsspy.jpg");
@@ -23,7 +24,7 @@
         </tr>
         <tr>
             <td align="right">Password:</td>
-            <td><input id="password"><br></td>
+            <td><input id="password" type="password"><br></td>
         </tr>
         <tr>
             <td></td>
@@ -49,9 +50,17 @@
         const response = await fetch("http://localhost:5000/login", loginInfo);
         if (response.status === 201) {
             const apiResponse = await response.json();
-            alert(apiResponse.message);
+            swal.fire({
+                title: 'Successful login, click continue!',
+                confirmButtonText: 'Continue'
+                }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    window.location.href="secretagentpage.html"
+                } 
+                });
             window.sessionStorage.setItem("token", apiResponse.token);
-            window.location.href = "secretagentpage.html"
+            //window.location.href = "secretagentpage.html"
         } else if (response.status === 200) { 
             const apiResponse = await response.json();
             alert(apiResponse.message);
@@ -62,7 +71,7 @@
 
 
 </script>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
 
 
 

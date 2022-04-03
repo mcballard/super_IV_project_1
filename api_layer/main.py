@@ -1,6 +1,6 @@
 """This module can be used in conjunction with the for_fetch.html file to see how you can create an http request body"""
 from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from Data_access_layer.dao_imp import DAOImp
 from custom_exceptions.failed_transaction import FailedTransaction
 from service_access_layer.service_access_imp import ServiceAccessIMP
@@ -30,7 +30,7 @@ def login():
         return jsonify(message)
 
 
-@app.route("/", methods=["POST"])
+@app.route("/home", methods=["POST"])
 def create_request():
     try:
         request_data: dict = request.get_json()
@@ -53,7 +53,7 @@ def create_request():
         return jsonify(message), 400
 
 
-@app.route("/", methods=["DELETE"])
+@app.route("/home", methods=["DELETE"])
 def cancel_request():
     try:
         request_data: dict = request.get_json()
@@ -78,7 +78,7 @@ def cancel_request():
         return jsonify(message), 400
 
 
-@app.route("/", methods=["PATCH"])
+@app.route("/home", methods=["PATCH"])
 def select_request():
     try:
         request_data: dict = request.get_json()

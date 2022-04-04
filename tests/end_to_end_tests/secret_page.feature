@@ -5,8 +5,8 @@ Feature: Secret agents need to manage their reimbursement requests
     When  I enter <username> in the username
     When  I enter <password> in the password
     When  I click the Login button
-    When  I click the Continue button
-    Then  I should be on a page with the title {title}
+    When  I click the Login Continue button
+    Then  I should be on a page with the title Super Secret Agent Stuff
 
 
   Scenario: As a secret agent, I should be able to create a reimbursement request
@@ -17,16 +17,16 @@ Feature: Secret agents need to manage their reimbursement requests
     When  I enter <comment> as my comment
     When  I enter <amount> as my amount
     When  I click the Create Request button
-    When  I click the Continue button
-    Then  I should be on a page with the title {title}
+    When  I click the Create Reimbursement Continue button
+    Then  I should be on a page with the title Super Secret Agent Stuff
 
 
   Scenario: As a secret agent, I should be able to view the total amount I have requested
     Given I am on the home page
     When  I click "View My Total Amount Requested"
     When  I click the View Total Amount button
-    When  I click the Continue button
-    Then  I should be on a page with the title {title}
+    When  I click the View Total Continue button
+    Then  I should be on a page with the title Super Secret Agent Stuff
 
 
   Scenario: As a secret agent, I should be able to cancel a reimbursement request
@@ -34,14 +34,14 @@ Feature: Secret agents need to manage their reimbursement requests
     When  I click "Cancel Reimbursement Request"
     When  I enter <reimbursement_request_id> of the request I would like to cancel
     When  I click the Cancel Request button
-    When  I click the Continue button
-    Then  I should be on a page with the title {title}
+    When  I click the Cancel Request Continue button
+    Then  I should be on a page with the title Super Secret Agent Stuff
 
 
   Scenario: As a secret agent, I should be able to log out
     Given I am on the home page
     When  I click "Log Out"
     When  I click the Log Out button
-    When  I click the Continue button
-    Then  I should be on a page with the title {title}
+    When  I click the Log Out Continue button
+    Then  I should be on a page with the title Super Secret Agent Stuff
 

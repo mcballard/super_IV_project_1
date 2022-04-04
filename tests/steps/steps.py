@@ -2,33 +2,27 @@ from behave import given, when, then
 
 @given(u'I am on the login page')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: Given I am on the login page')
-
+    context.driver.get("login.html")
 
 @when(u'I enter <username> in the username')
-def step_impl(context):
-    raise NotImplementedError(u'STEP: When I enter <username> in the username')
-
+def step_impl(context, username: str):
+    context.secret_page_poms.username_input().sendkeys(username)
 
 @when(u'I enter <password> in the password')
-def step_impl(context):
-    raise NotImplementedError(u'STEP: When I enter <password> in the password')
-
+def step_impl(context, password: str):
+    context.secret_page_poms.password_input().sendkeys(password)
 
 @when(u'I click the Login button')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: When I click the Login button')
-
+    context.secret_page_poms.login_button().click()
 
 @when(u'I click the Continue button')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: When I click the Continue button')
+    context.secret_page_poms.login_continue_button().click()
 
-
-@then(u'I am directed to the home page')
-def step_impl(context):
-    raise NotImplementedError(u'STEP: Then I am directed to the home page')
-
+@then(u'I should be on a page with the title {title}')
+def step_impl(context, title):
+    assert context.driver.title == title
 
 @given(u'I am on the home page')
 def step_impl(context):
@@ -46,17 +40,17 @@ def step_impl(context):
 
 
 @when(u'I select <reason> as my reason')
-def step_impl(context):
+def step_impl(context, reason):
     raise NotImplementedError(u'STEP: When I select <reason> as my reason')
 
 
 @when(u'I enter <comment> as my comment')
-def step_impl(context):
+def step_impl(context, comment: str):
     raise NotImplementedError(u'STEP: When I enter <comment> as my comment')
 
 
 @when(u'I enter <amount> as my amount')
-def step_impl(context):
+def step_impl(context, amount: float):
     raise NotImplementedError(u'STEP: When I enter <amount> as my amount')
 
 
@@ -64,11 +58,13 @@ def step_impl(context):
 def step_impl(context):
     raise NotImplementedError(u'STEP: When I click the Create Request button')
 
-
-@then(u'I am left on the home page')
+@when(u'I click the Continue button')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: Then I am left on the home page')
+    context.secret_page_poms.create_request_continue_button().click()
 
+@then(u'I should be on a page with the title {title}')
+def step_impl(context, title):
+    assert context.driver.title == title
 
 @when(u'I click "View My Total Amount Requested"')
 def step_impl(context):
@@ -79,6 +75,13 @@ def step_impl(context):
 def step_impl(context):
     raise NotImplementedError(u'STEP: When I click the View Total Amount button')
 
+@when(u'I click the Continue button')
+def step_impl(context):
+    context.secret_page_poms.view_total_continue_button().click()
+
+@then(u'I should be on a page with the title {title}')
+def step_impl(context, title):
+    assert context.driver.title == title
 
 @when(u'I click "Cancel Reimbursement Request"')
 def step_impl(context):
@@ -86,7 +89,7 @@ def step_impl(context):
 
 
 @when(u'I enter <reimbursement_request_id> of the request I would like to cancel')
-def step_impl(context):
+def step_impl(context, reimbursement_request_id: int):
     raise NotImplementedError(u'STEP: When I enter <reimbursement_request_id> of the request I would like to cancel')
 
 
@@ -94,6 +97,13 @@ def step_impl(context):
 def step_impl(context):
     raise NotImplementedError(u'STEP: When I click the Cancel Request button')
 
+@when(u'I click the Continue button')
+def step_impl(context):
+    context.secret_page_poms.cancel_request_continue_button().click()
+
+@then(u'I should be on a page with the title {title}')
+def step_impl(context, title):
+    assert context.driver.title == title
 
 @when(u'I click "Log Out"')
 def step_impl(context):
@@ -104,7 +114,10 @@ def step_impl(context):
 def step_impl(context):
     raise NotImplementedError(u'STEP: When I click the Log Out button')
 
-
-@then(u'I am redirected to the login page')
+@when(u'I click the Continue button')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: Then I am redirected to the login page')
+    context.secret_page_poms.log_out_continue_button().click()
+
+@then(u'I should be on a page with the title {title}')
+def step_impl(context, title):
+    assert context.driver.title == title

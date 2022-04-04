@@ -35,6 +35,9 @@ class ServiceAccessIMP(ServiceAccessInterface):
         # application specific search for keys with _id should be implemented here including for checks
         # on any other number type expected key, value pairs to ensure values are convertible types
         for key in snake_case_dictionary:
+            if key == "table_name":
+                if (snake_case_dictionary[key] != "reimbursement_requests") and (snake_case_dictionary[key] != "employees") and (snake_case_dictionary[key] != "reimbursement_request_comments"):
+                    raise FailedTransaction("Table to access not recognized!")
             if re.search("_id", key):
                 try:
                     proper_int_format = int(snake_case_dictionary[key])
@@ -55,17 +58,6 @@ class ServiceAccessIMP(ServiceAccessInterface):
                         break
                 except ValueError as e:
                     raise FailedTransaction("The amount should be a numeric value")
-        try:
-            check_for_int_as_table_name = int(snake_case_dictionary["table_name"])
-            if type(check_for_int_as_table_name) is int:
-                raise FailedTransaction("The table name should not be a number")
-            check_for_float_as_table_name = float(snake_case_dictionary["table_name"])
-            if type(check_for_float_as_table_name) is float:
-                raise FailedTransaction("The table name should not be a number")
-        except ValueError as e:
-            # confirms cannot convert and is not a number normal execution should continue
-            if e is ValueError:
-                return snake_case_dictionary
         return snake_case_dictionary
 
     def service_create_reimbursement_request(self, entity_dictionary: dict) -> RowEntity:

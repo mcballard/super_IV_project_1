@@ -21,7 +21,7 @@ class SecretPage:
         return element
 
     def login_continue_button(self):
-        element: WebElement = self.driver.find_element(By.CSS_SELECTOR, "swal2-confirm swal2-styled")
+        element: WebElement = self.driver.find_element(By.XPATH, "/html/body/div/div/div[3]/button[1]")
         return element
 
     def create_reimbursement_request(self):

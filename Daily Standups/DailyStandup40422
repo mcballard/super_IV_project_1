@@ -1,0 +1,11 @@
+Daily Standup for 4/4/22
+
+Progress:
+    web page completeish
+    selenium features started
+
+Todo:
+    finish postman tests
+    mock/stub
+    generate html reports for pytest
+    set up end to end tests

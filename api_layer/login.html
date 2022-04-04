@@ -63,7 +63,11 @@
             //window.location.href = "secretagentpage.html"
         } else if (response.status === 200) { 
             const apiResponse = await response.json();
-            alert(apiResponse.message);
+            swal.fire(
+                'Unsuccessful login attempt!',
+                apiResponse.message,
+                'error'
+                );
         } else {
             alert("something went wrong?");
         }

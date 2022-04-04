@@ -12,7 +12,7 @@ def step_impl(context, username: str):
 def step_impl(context, password: str):
     context.secret_page_poms.password_input().sendkeys(password)
 
-@when(u'I click the Log Out button')
+@when(u'I click the Login button')
 def step_impl(context):
     context.secret_page_poms.login_button().click()
 

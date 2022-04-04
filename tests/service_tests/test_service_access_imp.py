@@ -1,3 +1,5 @@
+from unittest.mock import MagicMock
+
 from Data_access_layer.dao_imp import DAOImp
 from custom_exceptions.failed_transaction import FailedTransaction
 from service_access_layer.service_access_imp import ServiceAccessIMP
@@ -122,6 +124,10 @@ def test_service_create_reimbursement_request_success():
         "amount": 100,
         "reimbursementRequestComment": "this is ok"
     }
+    test_service.dao_obj.create_reimbursement_request=MagicMock(
+            new_record={"tableName": "reimbursement_requests",
+                            "employeeId": 4, "reasonId": 2, "amount": 100, "reimbursementRequestComment": "this is ok"})
+
     assert test_service.service_create_reimbursement_request(new_record).row_entity_dict["reimbursement_request_id"] is not None
 
 
@@ -144,7 +150,8 @@ def test_service_select_total_amount_requested_by_id_success():
     amount_request = {
         "tableName": "reimbursement_requests",
         "employeeId": 4,
-    }
+        }
+    test_service.dao_obj.select_total_amount_requested=MagicMock(return_value=100)
     assert test_service.service_select_total_amount_requested(amount_request) == 100
 
 
@@ -153,5 +160,6 @@ def test_service_cancel_reimbursement_request_success():
         "tableName": "reimbursement_requests",
         "reimbursementRequestId": 1
     }
+    test_service.dao_obj.cancel_reimbursement_request=MagicMock(return_value=True)
     assert test_service.service_cancel_reimbursement_request(cancel_request)
 

@@ -161,5 +161,5 @@ def test_service_cancel_reimbursement_request_success():
         "reimbursementRequestId": 1
     }
     test_service.dao_obj.cancel_reimbursement_request=MagicMock(return_value=True)
-    assert test_service.service_cancel_reimbursement_request(cancel_request)
 
+    assert test_service.service_cancel_reimbursement_request(cancel_request)

@@ -45,10 +45,10 @@ def test_do_login_wrong_username():
 
 def test_sanitize_json_from_api_success():
     test_dict = {
-        "tableName": "tablename",
-        "tableNameId": 1
+        "tableName": "employees",
+        "employeeId": 1
     }
-    assert test_service.sanitize_json_from_api(test_dict)["table_name_id"] == 1
+    assert test_service.sanitize_json_from_api(test_dict)["employee_id"] == 1
 
 
 def test_sanitize_json_from_api_non_string_table_name():
@@ -60,7 +60,7 @@ def test_sanitize_json_from_api_non_string_table_name():
         test_service.sanitize_json_from_api(test_dict)
         assert False
     except FailedTransaction as e:
-        assert str(e) == "The field containing the table name is in the wrong format, must be a string."
+        assert str(e) == "Table to access not recognized!"
 
 
 def test_sanitize_json_from_api_convertible_number():
@@ -72,14 +72,14 @@ def test_sanitize_json_from_api_convertible_number():
         test_service.sanitize_json_from_api(test_dict)
         assert False
     except FailedTransaction as e:
-        assert str(e) == "The table name should not be a number"
+        assert str(e) == "Table to access not recognized!"
 
 
 def test_sanitize_json_from_api_id_field_non_number():
     try:
         test_dict = {
-            "tableName": "tablename",
-            "tableNameId": "one"
+            "tableName": "employees",
+            "employeeId": "one"
         }
         test_service.sanitize_json_from_api(test_dict)
         assert False
@@ -90,7 +90,7 @@ def test_sanitize_json_from_api_id_field_non_number():
 def test_service_create_reimbursement_request_comment_less_than_100():
     try:
         test_dict = {
-                     "tableName": "tablename",
+                     "tableName": "reimbursement_requests",
                      "employeeId": 4,
                      "reasonId": 5,
                      "amount": 100,
@@ -105,7 +105,7 @@ def test_service_create_reimbursement_request_comment_less_than_100():
 def test_service_create_reimbursement_request_amount_between_1_and_1000():
     try:
         test_dict = {
-                     "tableName": "tablename",
+                     "tableName": "reimbursement_requests",
                      "employeeId": 4,
                      "reasonId": 5,
                      "amount": 1000000,

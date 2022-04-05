@@ -29,7 +29,6 @@ class SecretPage:
         element: WebElement = self.driver.find_element(By.ID, "createCollapseButton")
         return element
 
-
     def select_reason(self):
         element = Select(self.driver.find_element(By.ID, "reason"))
         return element

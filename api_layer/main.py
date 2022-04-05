@@ -27,7 +27,7 @@ def login():
         message = {
             "message": str(e)
         }
-        return jsonify(message)
+        return jsonify(message), 400
 
 
 @app.route("/home", methods=["POST"])

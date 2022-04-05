@@ -61,7 +61,7 @@
                 });
             window.sessionStorage.setItem("token", apiResponse.token);
             //window.location.href = "secretagentpage.html"
-        } else if (response.status === 200) { 
+        } else if (response.status === 400) {
             const apiResponse = await response.json();
             swal.fire(
                 'Unsuccessful login attempt!',

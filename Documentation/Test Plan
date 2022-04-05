@@ -10,7 +10,7 @@ Test Plan
         Excalidraw for wireframe design https://excalidraw.com
         Selenium for automated end to end tests
         Flask-Cors for allowing responses from our pages
-        Behave, Cucumber to help interpret our user acceptance criteria into steps for selenium
+        Behave, Cucumber to help interpret our user acceptance criteria into steps for Selenium
 
     Deadlines:
         Daily Standups will be conducted.

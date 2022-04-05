@@ -6,6 +6,13 @@ from data_entity_class.row_entity import RowEntity
 
 class DAOImp(ReimbursementInterface):
 
+    def trunc_table(self, sql_query) -> bool:
+        cursor = connection.cursor()
+        cursor.execute(sql_query)
+        connection.commit()
+        return True
+
+
     def select_record(self, sql_query) -> RowEntity:
         cursor = connection.cursor()
         cursor.execute(sql_query)

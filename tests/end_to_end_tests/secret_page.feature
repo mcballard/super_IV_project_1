@@ -74,12 +74,12 @@ Feature: Secret agents need to manage their reimbursement requests
 
       Examples:
         | reimbursement_request_id |
-        | 7                        |
+        | 1                        |
 
   Scenario: As a secret agent, I should be able to log out
     Given I am on the home page
     When  I click "Log Out"
     When  I click the Log Out button
     When  I click the Log Out Continue button
-    Then  I should be on a page with the title Super Secret Agent Stuff
+    Then  I should be on a page with the title Super Secret Login
 

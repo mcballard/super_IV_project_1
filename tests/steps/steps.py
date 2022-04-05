@@ -26,11 +26,6 @@ def step_impl(context):
     context.secret_page_poms.login_continue_button().click()
 
 
-@when(u'I click the Create Reimbursement Continue button')
-def step_impl(context):
-    raise NotImplementedError(u'STEP: When I click the Create Reimbursement Continue button')
-
-
 @then(u'I should be on a page with the title Super Secret Agent Stuff')
 def step_impl(context):
     assert context.driver.title == "Super Secret Agent Stuff"
@@ -38,37 +33,32 @@ def step_impl(context):
 
 @given(u'I am on the home page')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: Given I am on the home page')
+    context.driver.get('https://p1-bucket-test-mcballard.s3.amazonaws.com/secretagentpage.html')
 
 
 @when(u'I click "Create Reimbursement Request"')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: When I click "Create Reimbursement Request"')
+    context.secret_page_poms.create_reimbursement_request().click()
 
 
-@when(u'I select the drop down menu for reason')
+@when(u'I select 2 as my reason')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: When I select the drop down menu for reason')
-
-
-@when(u'I select {reason} as my reason')
-def step_impl(context, reason):
-    raise NotImplementedError(u'STEP: When I select <reason> as my reason')
+    context.secret_page_poms.select_reason().select_by_value('2')
 
 
 @when(u'I enter {comment} as my comment')
 def step_impl(context, comment: str):
-    raise NotImplementedError(u'STEP: When I enter <comment> as my comment')
+    context.secret_page_poms.enter_comment().send_keys(comment)
 
 
 @when(u'I enter {amount} as my amount')
 def step_impl(context, amount: float):
-    raise NotImplementedError(u'STEP: When I enter <amount> as my amount')
+    context.secret_page_poms.enter_amount().send_keys(amount)
 
 
 @when(u'I click the Create Request button')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: When I click the Create Request button')
+    context.secret_page_poms.create_request_button().click()
 
 
 @when(u'I click the Create Request Continue button')
@@ -78,12 +68,12 @@ def step_impl(context):
 
 @when(u'I click "View My Total Amount Requested"')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: When I click "View My Total Amount Requested"')
+    context.secret_page_poms.view_total_amount_requested().click()
 
 
 @when(u'I click the View Total Amount button')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: When I click the View Total Amount button')
+    context.secret_page_poms.view_total_amount_button().click()
 
 
 @when(u'I click the View Total Continue button')
@@ -93,17 +83,17 @@ def step_impl(context):
 
 @when(u'I click "Cancel Reimbursement Request"')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: When I click "Cancel Reimbursement Request"')
+    context.secret_page_poms.cancel_reimbursement_request().click()
 
 
-@when(u'I enter <reimbursement_request_id> of the request I would like to cancel')
+@when(u'I enter {reimbursement_request_id} of the request I would like to cancel')
 def step_impl(context, reimbursement_request_id: int):
-    raise NotImplementedError(u'STEP: When I enter <reimbursement_request_id> of the request I would like to cancel')
+    context.secret_page_poms.enter_request_id_to_cancel().send_keys(reimbursement_request_id)
 
 
 @when(u'I click the Cancel Request button')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: When I click the Cancel Request button')
+    context.secret_page_poms.cancel_request_button().click()
 
 
 @when(u'I click the Cancel Request Continue button')
@@ -113,12 +103,12 @@ def step_impl(context):
 
 @when(u'I click "Log Out"')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: When I click "Log Out"')
+    context.secret_page_poms.log_out().click()
 
 
 @when(u'I click the Log Out button')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: When I click the Log Out button')
+    context.secret_page_poms.log_out_button().click()
 
 
 @when(u'I click the Log Out Continue button')

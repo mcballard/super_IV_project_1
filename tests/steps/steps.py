@@ -26,6 +26,11 @@ def step_impl(context):
     context.secret_page_poms.login_continue_button().click()
 
 
+@when(u'I click the Create Reimbursement Continue button')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: When I click the Create Reimbursement Continue button')
+
+
 @then(u'I should be on a page with the title Super Secret Agent Stuff')
 def step_impl(context):
     assert context.driver.title == "Super Secret Agent Stuff"
@@ -122,5 +127,5 @@ def step_impl(context):
 
 
 @then(u'I should be on a page with the title Super Secret Login')
-def step_impl(context, title):
+def step_impl(context):
     assert context.driver.title == "Super Secret Login"

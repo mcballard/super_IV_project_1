@@ -42,17 +42,19 @@ Feature: Secret agents need to manage their reimbursement requests
       | jb007    | shakennotstirrup |
 
 
-  Scenario: As a secret agent, I should be able to create a reimbursement request
+  Scenario Outline: As a secret agent, I should be able to create a reimbursement request
     Given I am on the home page
     When  I click "Create Reimbursement Request"
-    When  I select the drop down menu for reason
-    When  I select <reason> as my reason
+    When  I select 2 as my reason
     When  I enter <comment> as my comment
     When  I enter <amount> as my amount
     When  I click the Create Request button
-    When  I click the Create Reimbursement Continue button
+    When  I click the Create Request Continue button
     Then  I should be on a page with the title Super Secret Agent Stuff
 
+      Examples:
+        | comment        | amount |
+        | I am a comment | 550.50 |
 
   Scenario: As a secret agent, I should be able to view the total amount I have requested
     Given I am on the home page
@@ -62,7 +64,7 @@ Feature: Secret agents need to manage their reimbursement requests
     Then  I should be on a page with the title Super Secret Agent Stuff
 
 
-  Scenario: As a secret agent, I should be able to cancel a reimbursement request
+  Scenario Outline: As a secret agent, I should be able to cancel a reimbursement request
     Given I am on the home page
     When  I click "Cancel Reimbursement Request"
     When  I enter <reimbursement_request_id> of the request I would like to cancel
@@ -70,6 +72,9 @@ Feature: Secret agents need to manage their reimbursement requests
     When  I click the Cancel Request Continue button
     Then  I should be on a page with the title Super Secret Agent Stuff
 
+      Examples:
+        | reimbursement_request_id |
+        | 7                        |
 
   Scenario: As a secret agent, I should be able to log out
     Given I am on the home page

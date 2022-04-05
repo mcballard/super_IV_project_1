@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
-from selenium.webdriver.safari.webdriver import WebDriver
+from selenium.webdriver.firefox.webdriver import WebDriver
+from selenium.webdriver.support.ui import Select
 
 
 class SecretPage:
@@ -28,8 +29,9 @@ class SecretPage:
         element: WebElement = self.driver.find_element(By.ID, "createCollapseButton")
         return element
 
+
     def select_reason(self):
-        element: WebElement = self.driver.find_element(By.ID, "reason")
+        element = Select(self.driver.find_element(By.ID, "reason"))
         return element
 
     def enter_comment(self):
@@ -69,7 +71,7 @@ class SecretPage:
         return element
 
     def cancel_request_button(self):
-        element: WebElement = self.driver.find_element(By.ID, "cancelRequestById")
+        element: WebElement = self.driver.find_element(By.ID, "cancelRequest")
         return element
 
     def cancel_request_continue_button(self):

@@ -64,18 +64,6 @@ Feature: Secret agents need to manage their reimbursement requests
     Then  I should be on a page with the title Super Secret Agent Stuff
 
 
-  Scenario Outline: As a secret agent, I should be able to cancel a reimbursement request
-    Given I am on the home page
-    When  I click "Cancel Reimbursement Request"
-    When  I enter <reimbursement_request_id> of the request I would like to cancel
-    When  I click the Cancel Request button
-    When  I click the Cancel Request Continue button
-    Then  I should be on a page with the title Super Secret Agent Stuff
-
-      Examples:
-        | reimbursement_request_id |
-        | 1                        |
-
   Scenario: As a secret agent, I should be able to log out
     Given I am on the home page
     When  I click "Log Out"

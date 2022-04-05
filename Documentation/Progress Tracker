@@ -50,11 +50,14 @@ row_entity.py, test_entity.py, test_dao.py branched and modified by group
     api_layer.main.cancel_request - Dylan - completed
     api_layer.main.select_request - Charles - completed
     test_service_access_imp.test_create_reimbursement_request_amount_non_numeric - Dylan - completed
-    samantha_test_service_access_imp
-    test_service_access_imp -Samantha - Mocking - completed
+    samantha_test_service_access_imp and test_service_access_imp -Samantha - Mocking - completed
     created web interface - Matt - completed
     set up features for behave/selenium - Dylan
-    worked on selenium end to end stuff as group - in progress
+    worked on selenium end to end stuff as group - completed 4/5/22
+    login_logout.feature and create_request.feature - Matt - completed
+    view_total.feature, steps and poms implementation - Samantha - completed
+    cancel_request.feature, steps and poms implementation - Dylan - completed
+
 
 
 

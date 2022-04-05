@@ -55,8 +55,8 @@ Testing Strategy:
 					must all have a positive test using Postman
 					must have negative tests for all possible errors for each type of request
 
-		Integration testing:
-			(fill in when we get there)
+		Integration testing and end to end testing:
+			We utilized Postman for some integration testing and Selenium for our end to end testing.
 
 	Defect and bug reporting:
 
@@ -68,4 +68,4 @@ Testing Strategy:
 				Who is assigned to the effected modules?
 
 		Test results:
-			(fill this in when we get there)
+			Unit testing results will be stored in the repo in html files using pytest-html.

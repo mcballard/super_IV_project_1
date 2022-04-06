@@ -76,6 +76,16 @@ def step_impl(context):
     context.secret_page_poms.view_total_amount_button().click()
 
 
+@when(u'I am shown an error i see an x icon')
+def step_impl(context):
+    context.secret_page_poms.error_icon_div().click()
+
+
+@when(u'I am not logged in and see an error with an x icon')
+def step_impl(context):
+    context.secret_page_poms.login_error_icon_div().click()
+
+
 @when(u'I click the View Total Continue button')
 def step_impl(context):
     context.secret_page_poms.view_total_continue_button().click()

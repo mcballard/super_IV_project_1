@@ -34,6 +34,7 @@ Feature: Secret agents need to create reimbursement requests
     When  I enter <comment> as my comment
     When  I enter <amount> as my amount
     When  I click the Create Request button
+    When  I am shown an error i see an x icon
     When  I click the Create Request Continue button
     Then  I should be on a page with the title Super Secret Agent Stuff
 
@@ -48,6 +49,7 @@ Feature: Secret agents need to create reimbursement requests
     When  I enter <comment> as my comment
     When  I enter <amount> as my amount
     When  I click the Create Request button
+    When  I am shown an error i see an x icon
     When  I click the Create Request Continue button
     Then  I should be on a page with the title Super Secret Agent Stuff
 

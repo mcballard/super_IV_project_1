@@ -6,6 +6,7 @@ Feature: Secret agents need to manage their reimbursement requests
     When  I enter <username> in the username
     When  I enter <password> in the password
     When  I click the Login button
+    When  I am not logged in and see an error with an x icon
     When  I click the Login Continue button
     Then  I should be on a page with the title Super Secret Login
 
@@ -20,6 +21,7 @@ Feature: Secret agents need to manage their reimbursement requests
     When  I enter <username> in the username
     When  I enter <password> in the password
     When  I click the Login button
+    When  I am not logged in and see an error with an x icon
     When  I click the Login Continue button
     Then  I should be on a page with the title Super Secret Login
 

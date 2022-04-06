@@ -116,6 +116,9 @@ class ServiceAccessIMP(ServiceAccessInterface):
         select_input = self.sanitize_json_from_api(entity_dictionary)
         if type(select_input["employee_id"]) == int:
             service_select_total_amount = RowEntity(select_input)
-            return self.dao_obj.select_total_amount_requested(service_select_total_amount.return_select_sql_string())
+            total = self.dao_obj.select_total_amount_requested(service_select_total_amount.return_select_sql_string())
+            if type(total) != float:
+                raise FailedTransaction("You have not made any reimbursement requests!")
+            return total
         else:
             raise FailedTransaction("test reimbursement employee_id cannot use numeric type")

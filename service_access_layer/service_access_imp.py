@@ -68,8 +68,6 @@ class ServiceAccessIMP(ServiceAccessInterface):
             raise FailedTransaction("The amount should be a numeric value")
         if (float(new_request["amount"]) < 1) or (float(new_request["amount"]) > 1000):
             raise FailedTransaction("reimbursement amount must be between $1 and $1000")
-        if len((str(new_request["amount"])).split(".")[1]) > 2:
-            raise FailedTransaction("Amount cannot have more than 2 numbers after the decimal")
         # since the api dictionary contained the comment information as well we need to separate it from this dictionary
         # in order to create to separate table entries one for the request itself and one for the comment
         # this is done because the business case required the  reimbursement request table entries be numeric values only
@@ -119,7 +117,7 @@ class ServiceAccessIMP(ServiceAccessInterface):
         if type(select_input["employee_id"]) == int:
             service_select_total_amount = RowEntity(select_input)
             total = self.dao_obj.select_total_amount_requested(service_select_total_amount.return_select_sql_string())
-            if type(total) != float and type(total) != int:
+            if type(total) != float:
                 raise FailedTransaction("You have not made any reimbursement requests!")
             return total
         else:

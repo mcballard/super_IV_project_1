@@ -14,7 +14,7 @@ def test_do_login_success():
         "username": "jb007",
         "password": "shakennotstirred"
     }
-    assert test_service.do_login(test_login) == "jb007_1"
+    assert test_service.do_login(test_login) == "jb007shakennotstirred1"
 
 
 def test_do_login_wrong_password():
@@ -145,20 +145,6 @@ def test_service_create_reimbursement_request_catch_amount_non_numeric():
     except FailedTransaction as e:
         assert str(e) == "The amount should be a numeric value"
 
-def test_service_create_reimbursement_request_amount_more_than_two_decimals():
-    try:
-        new_record = {
-            "tableName": "reimbursement_requests",
-            "employeeId": 4,
-            "reasonId": 2,
-            "amount": 100.123456,
-            "reimbursementRequestComment": "this is ok"
-        }
-        test_service.service_create_reimbursement_request(new_record)
-        assert False
-    except FailedTransaction as e:
-        assert str(e) == "Amount cannot have more than 2 numbers after the decimal"
-
 
 def test_service_select_total_amount_requested_by_id_success():
     amount_request = {
@@ -168,17 +154,6 @@ def test_service_select_total_amount_requested_by_id_success():
     test_service.dao_obj.select_total_amount_requested=MagicMock(return_value=100)
     assert test_service.service_select_total_amount_requested(amount_request) == 100
 
-def test_service_select_total_amount_requested_by_id_no_requests():
-    try:
-        amount_request = {
-            "tableName": "reimbursement_requests",
-            "employeeId": 5,
-            }
-        test_service.dao_obj.select_total_amount_requested=MagicMock(returnvalue=None)
-        test_service.service_select_total_amount_requested(amount_request)
-        assert False
-    except FailedTransaction as e:
-        assert str(e) == "You have not made any reimbursement requests!"
 
 def test_service_cancel_reimbursement_request_success():
     cancel_request = {

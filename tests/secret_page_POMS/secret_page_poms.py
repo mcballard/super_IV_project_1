@@ -58,6 +58,14 @@ class SecretPage:
         element: WebElement = self.driver.find_element(By.ID, "viewTotal")
         return element
 
+    def error_icon_div(self):
+        element: WebElement = self.driver.find_element(By.XPATH, "/html/body/div[5]/div/div[1]/div[1]")
+        return element
+
+    def login_error_icon_div(self):
+        element: WebElement = self.driver.find_element(By.XPATH, "/html/body/div/div/div[1]/div[1]")
+        return element
+
     def view_total_continue_button(self):
         element: WebElement = self.driver.find_element(By.XPATH, "/html/body/div[5]/div/div[3]/button[1]")
         return element

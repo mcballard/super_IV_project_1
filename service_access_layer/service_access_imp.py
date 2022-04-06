@@ -17,9 +17,7 @@ class ServiceAccessIMP(ServiceAccessInterface):
         employee_to_login = EmployeeLogin(login_info)
         employee: RowEntity = self.dao_obj.select_record(employee_to_login.return_select_sql_string())
         if login_info["password"] == employee.row_entity_dict["pass"]:
-            return employee.row_entity_dict["username"] + \
-                        employee.row_entity_dict["pass"] + \
-                        str(employee.row_entity_dict["employee_id"])
+            return employee.row_entity_dict["username"] + "_" + str(employee.row_entity_dict["employee_id"])
         else:
             raise FailedTransaction("Password is incorrect!")
 

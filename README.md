@@ -28,7 +28,7 @@ This application was designed for company employees to be able to submit reimbur
 - New employee creation for system
 - Deleting old employees from system
 
-Getting Started
+# Getting Started
 - to clone:
   - git clone https://github.com/mcballard/super_IV_project_1.git
 - Database:
@@ -45,5 +45,5 @@ Getting Started
   - Employees can choose a category that the expense can generally fall under.
   - Employees can view the total amount they have in requests.
   - Employees can cancel any request they make.
-- Employees can log out of the reimbursement portal to ensure my privacy. 
+- Employees can log out of the reimbursement portal to ensure their privacy. 
 

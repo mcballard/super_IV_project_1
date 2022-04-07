@@ -1,5 +1,6 @@
 from behave.runner import Context
 from selenium.webdriver.firefox.webdriver import WebDriver
+from selenium.webdriver.safari.webdriver import WebDriver
 from tests.secret_page_POMS.secret_page_poms import SecretPage
 
 

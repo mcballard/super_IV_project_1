@@ -25,11 +25,11 @@ def before_first_request():
     for handler in app.logger.handlers:
         app.logger.removeHandler(handler)
 
-    root = os.path.dirname(os.path.abspath(__file__))
-    logdir = os.path.join(root, 'logs')
+    # root = os.path.dirname(os.path.abspath(__file__))
+    logdir = "../Documentation/logs/"
     if not os.path.exists(logdir):
         os.mkdir(logdir)
-    log_file = os.path.join(logdir, 'app.log')
+    log_file = os.path.join("../Documentation/logs/", 'api_interaction.log')
     handler = logging.FileHandler(log_file)
     handler.setLevel(log_level)
     app.logger.addHandler(handler)

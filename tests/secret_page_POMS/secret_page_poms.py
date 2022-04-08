@@ -1,7 +1,8 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
+#from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.firefox.webdriver import WebDriver
-from selenium.webdriver.safari.webdriver import WebDriver
+# from selenium.webdriver.safari.webdriver import WebDriver
 from selenium.webdriver.support.ui import Select
 
 

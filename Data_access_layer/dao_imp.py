@@ -12,6 +12,27 @@ class DAOImp(ReimbursementInterface):
         connection.commit()
         return True
 
+    def select_all(self, sql_query) -> []:
+        cursor = connection.cursor()
+        cursor.execute(sql_query)
+        new_record_tuple_list = cursor.fetchall()
+        if cursor.rowcount < 1:
+            connection.rollback()
+            raise FailedTransaction("Bad table data?")
+        else:
+            connection.commit()
+            column_names = [desc[0] for desc in cursor.description]
+            if len(new_record_tuple_list) != 0:
+                row_list = []
+                for record in new_record_tuple_list:
+                    mapping = {}
+                    for i in range(len(column_names)):
+                        mapping.update({column_names[i]: record[i]})
+                    new_record = RowEntity(mapping)
+                    row_list.append(new_record)
+                return row_list
+            else:
+                raise FailedTransaction("something else")
 
     def select_record(self, sql_query) -> RowEntity:
         cursor = connection.cursor()

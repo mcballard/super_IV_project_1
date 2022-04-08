@@ -1,4 +1,5 @@
 from behave import given, when, then
+from selenium.webdriver.support.wait import WebDriverWait
 
 
 @given(u'I am on the login page')

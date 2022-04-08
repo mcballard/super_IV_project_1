@@ -44,10 +44,11 @@
         }
         let loginInfo = {
             method:"POST",
+            mode: "cors",
             headers:{'Content-Type':"application/json"},
             body: JSON.stringify(loginJSON)
         }
-        const response = await fetch("http://localhost:5000/login", loginInfo);
+        const response = await fetch("http://localhost:5000/login/", loginInfo);
         if (response.status === 201) {
             const apiResponse = await response.json();
             swal.fire({
@@ -57,7 +58,7 @@
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
                     window.location.href="secretagentpage.html"
-                } 
+                }
                 });
             window.sessionStorage.setItem("token", apiResponse.token);
             //window.location.href = "secretagentpage.html"

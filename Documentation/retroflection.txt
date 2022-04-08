@@ -1,0 +1,24 @@
+Sprint Retroflection for super-IV project 1
+
+
+1. organiztion of the coding implementation went very well.
+
+   dividing the labor went well.
+
+   presentation went as well as it could have.
+
+   front-end implementation went well.
+
+   did well after losing a teammate halfway through.
+
+2. coding skills have improved.
+
+   improved organization skills.
+
+   presentation skills improved.
+
+3. contemplate more testing.
+
+   seek more reusable algorithms in our code.
+
+4. improve the flexibility of the front-end webpage creation.

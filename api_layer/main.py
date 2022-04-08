@@ -36,7 +36,27 @@ def before_first_request():
     app.logger.setLevel(log_level)
 
 
-@app.route("/login", methods=["POST"])
+@app.route("/", methods=["POST"])
+def fill_reasons():
+    try:
+        app.logger.info(f"{request.get_json()}, {request}, {request.path}, {datetime.datetime.now()}")
+        fill_dict: dict = request.get_json()
+        fill_response = service_object.fill_select(fill_dict)
+        """_response = {
+            "token": auth_token,
+            "message": "Identity Confirmed!"
+        }
+        app.logger.info('%s logged in successfully', login_dict["username"])"""
+        return fill_response, 201
+    except FailedTransaction as e:
+        message = {
+            "message": str(e)
+        }
+        app.logger.info('unsuccessful login attempt')
+        return jsonify(message), 400
+
+
+@app.route("/login/", methods=["POST"])
 def login():
     try:
         app.logger.info(f"{request.get_json()}, {request}, {request.path}, {datetime.datetime.now()}")

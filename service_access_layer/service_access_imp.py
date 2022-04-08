@@ -1,10 +1,12 @@
 import re
+from ast import literal_eval
 from collections.abc import Mapping
 from re import sub
 from Data_access_layer import dao_interface
 from custom_exceptions.failed_transaction import FailedTransaction
 from data_entity_class.employee_login import EmployeeLogin
 from data_entity_class.row_entity import RowEntity
+from data_entity_class.table_entity_object import TableEntity
 from service_access_layer.service_access_interface import ServiceAccessInterface
 
 
@@ -12,6 +14,24 @@ class ServiceAccessIMP(ServiceAccessInterface):
 
     def __init__(self, dao_object: dao_interface):
         self.dao_obj = dao_object
+
+    def fill_select(self, fill_dict):
+        table_dict = TableEntity(fill_dict)
+        sql_query = table_dict.return_select_sql_string()
+        table_rows = self.dao_obj.select_all(sql_query)
+        dictionary_concat = "{ "
+        comma_count = 0
+        too_many_commas = 0
+        for commas in table_rows:
+            too_many_commas += 1
+        for row in table_rows:
+            comma_count += 1
+            dictionary_concat += "'reason" + str(row.row_entity_dict["reason_id"]) + "':" + str(row.return_json_friendly_dictionary())
+            if comma_count < too_many_commas:
+                dictionary_concat += ","
+        dictionary_concat += "}"
+        dictionary_for_reasons = literal_eval(dictionary_concat)
+        return dictionary_for_reasons
 
     def do_login(self, login_info):
         employee_to_login = EmployeeLogin(login_info)
@@ -45,7 +65,7 @@ class ServiceAccessIMP(ServiceAccessInterface):
                     raise FailedTransaction("The input from the api is not convertible to integer for an id field.")
         if type(snake_case_dictionary["table_name"]) is not str:
             raise FailedTransaction("The field containing the table name is in the wrong format, must be a string.")
-        # the following regular expression should be used on any string value entering the db to prevent sql injection
+        # the following regular expression should be used on any string value entering the db
         snake_case_dictionary["table_name"] = re.sub("[^A-Za-z_0-9]", "", snake_case_dictionary["table_name"])
         for key in snake_case_dictionary:
             if key == "amount":
